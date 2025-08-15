@@ -23,13 +23,14 @@ import { KeyboardArrowLeft, Upload as UploadIcon } from "@mui/icons-material";
 
 import { Editor } from "@tinymce/tinymce-react";
 
-import {
-  CustomTextField,
-  StyledButton,
-} from "../../../components/Utils/UIUtils";
 import { uploadImage, useImageUpload } from "../../../services/firebaseStorage";
 import { useDispatch } from "react-redux";
-import { createBlogPost, updateBlogPost } from "@/redux/slices/blogSlice";
+import {
+  createBlogPost,
+  fetchBlogPost,
+  updateBlogPost,
+} from "@/redux/slices/blogSlice";
+import { CustomTextField, StyledButton } from "@/components/Ui";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const ALLOWED_FILE_TYPES = [
@@ -45,7 +46,6 @@ const BlogEditor = () => {
   const id = params?.id;
   const isEditMode = !!id;
 
-  // Image upload hooks
   const {
     handleFileUpload: handleFeaturedImageUpload,
     isUploading: featuredImageUploading,
@@ -53,7 +53,6 @@ const BlogEditor = () => {
     uploadError: featuredImageError,
   } = useImageUpload();
 
-  // Form state
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [excerpt, setExcerpt] = useState("");
@@ -68,15 +67,27 @@ const BlogEditor = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Track images to clean up
+  const [isClient, setIsClient] = useState(false);
+
   const [uploadedImages, setUploadedImages] = useState([]);
 
-  // UI state
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
-  // Handle image upload for TinyMCE
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (!isEditMode && uploadedImages.length > 0) {
+      }
+    };
+  }, [uploadedImages, isEditMode]);
+
   const handleTinyMCEImageUpload = (blobInfo, progress) => {
     return new Promise((resolve, reject) => {
       const file = blobInfo.blob();
@@ -98,7 +109,6 @@ const BlogEditor = () => {
     });
   };
 
-  // TinyMCE configuration
   const editorConfig = {
     height: 400,
     menubar: false,
@@ -157,7 +167,6 @@ const BlogEditor = () => {
     },
   };
 
-  // Generate slug from title
   useEffect(() => {
     if (!isEditMode || !slug) {
       setSlug(
@@ -168,17 +177,40 @@ const BlogEditor = () => {
           .replace(/-+/g, "-")
       );
     }
-  }, [title, isEditMode]);
+  }, [title, isEditMode, slug]);
 
-  // Load blog data if in edit mode
   useEffect(() => {
     if (isEditMode) {
-      // Replace with your blog fetching logic
-      // fetchBlogPost(id);
-    }
-  }, [id, isEditMode]);
+      const loadBlogData = async () => {
+        try {
+          setLoading(true);
+          const data = await dispatch(fetchBlogPost(id));
 
-  // Tag management
+          const payload = data?.payload;
+          if (payload) {
+            setTitle(payload.title || "");
+            setContent(payload.content || "");
+            setExcerpt(payload.excerpt || "");
+            setTags(payload.tags || []);
+            setSlug(payload.slug || "");
+            setFeaturedImage(payload.featuredImage || "");
+            setSeoTitle(payload.seo?.title || "");
+            setSeoDescription(payload.seo?.description || "");
+            setSeoKeywords(payload.seo?.keywords || []);
+            setPublished(payload.published || false);
+          }
+        } catch (error) {
+          console.error("Failed to load blog post:", error);
+          setError("Failed to load blog post");
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      loadBlogData();
+    }
+  }, [id, isEditMode, dispatch]);
+
   const handleAddTag = () => {
     if (newTag && !tags.includes(newTag)) {
       setTags([...tags, newTag]);
@@ -190,7 +222,6 @@ const BlogEditor = () => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
 
-  // Featured image upload handler
   const handleFeaturedImageChange = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -216,7 +247,6 @@ const BlogEditor = () => {
     }
   };
 
-  // Validation
   const validateFile = (file) => {
     if (!file) return false;
     if (file.size > MAX_FILE_SIZE) return false;
@@ -224,16 +254,12 @@ const BlogEditor = () => {
     return true;
   };
 
-  // Snackbar helper
   const showSnackbar = (message, severity = "success") => {
     setSnackbarMessage(message);
     setSnackbarSeverity(severity);
     setSnackbarOpen(true);
   };
 
-  const dispatch = useDispatch();
-
-  // Form submission
   const handleSave = async (publishStatus = null) => {
     const finalPublishStatus =
       publishStatus !== null ? publishStatus : published;
@@ -255,8 +281,6 @@ const BlogEditor = () => {
 
     try {
       setLoading(true);
-      // Replace with your save logic
-      console.log("Saving blog:", blogData);
 
       if (isEditMode) {
         await dispatch(updateBlogPost({ id, blogData })).unwrap();
@@ -268,11 +292,11 @@ const BlogEditor = () => {
 
       showSnackbar(isEditMode ? "Blog updated!" : "Blog created!", "success");
 
-      // if (!isEditMode) {
-      //   setTimeout(() => {
-      //     router.push("/blog-admin");
-      //   }, 1500);
-      // }
+      if (!isEditMode) {
+        setTimeout(() => {
+          router.push("/blog-admin");
+        }, 1500);
+      }
     } catch (err) {
       showSnackbar(err.message || "An error occurred", "error");
     } finally {
@@ -288,7 +312,6 @@ const BlogEditor = () => {
     setSnackbarOpen(false);
   };
 
-  // Form validation
   const isFormValid = title && content && slug;
 
   if (loading && isEditMode) {
@@ -384,12 +407,30 @@ const BlogEditor = () => {
             </Typography>
 
             <Box sx={{ mb: 3 }}>
-              <Editor
-                apiKey="91nn4c8egy6t05rg5x9wo6og0os8wuhympfepvckbgye8lbm"
-                value={content}
-                onEditorChange={(newContent) => setContent(newContent)}
-                init={editorConfig}
-              />
+              {/* FIXED: Only render Editor on client-side to prevent hydration issues */}
+              {isClient ? (
+                <Editor
+                  apiKey="91nn4c8egy6t05rg5x9wo6og0os8wuhympfepvckbgye8lbm"
+                  value={content}
+                  onEditorChange={(newContent) => setContent(newContent)}
+                  init={editorConfig}
+                />
+              ) : (
+                <Box
+                  sx={{
+                    height: 400,
+                    border: "1px solid #ccc",
+                    borderRadius: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    bgcolor: "#f5f5f5",
+                  }}
+                >
+                  <CircularProgress size={24} />
+                  <Typography sx={{ ml: 1 }}>Loading editor...</Typography>
+                </Box>
+              )}
             </Box>
 
             {/* Excerpt */}
@@ -555,6 +596,36 @@ const BlogEditor = () => {
                       "https://via.placeholder.com/300x200?text=Image+Error";
                   }}
                 />
+              </Box>
+            )}
+          </Paper>
+
+          <Paper sx={{ p: 3, mb: 3 }}>
+            <Typography variant="h2" gutterBottom sx={{ fontSize: "1.2rem" }}>
+              Uploaded Images ({uploadedImages.length})
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            {uploadedImages.length > 0 && (
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)",
+                  gap: 1,
+                }}
+              >
+                {uploadedImages.map((url, index) => (
+                  <img
+                    key={index}
+                    src={url}
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "60px",
+                      objectFit: "cover",
+                      borderRadius: "4px",
+                    }}
+                  />
+                ))}
               </Box>
             )}
           </Paper>

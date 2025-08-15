@@ -29,7 +29,6 @@ import {
   FileCopy,
 } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
 import { format } from "date-fns";
 
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -41,18 +40,15 @@ import {
   selectBlogLoading,
   cloneBlogPost,
 } from "../../../redux/slices/blogSlice";
-import { StyledButton } from "../../../components/Utils/UIUtils";
+import { StyledButton } from "@/components/Ui";
 
-const BlogDashboard = () => {
-  const { t } = useTranslation();
+const BlogDashboard = ({ dict }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const blogs = useAppSelector(selectAllBlogs);
   const loading = useAppSelector(selectBlogLoading);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [blogToDelete, setBlogToDelete] = useState(null);
-
-  console.log("blogs", blogs);
 
   useEffect(() => {
     dispatch(fetchBlogPosts());
@@ -134,7 +130,6 @@ const BlogDashboard = () => {
       return "Invalid date";
     }
   };
-  console.log(blogToDelete);
 
   if (loading && blogs.length === 0) {
     return (
@@ -162,14 +157,14 @@ const BlogDashboard = () => {
         }}
       >
         <Typography variant="h4" component="h1" sx={{ fontSize: "1.5rem" }}>
-          {t("DASHBOARD.BLOG.TITLE")}
+          {dict.DASHBOARD.BLOG.TITLE}
         </Typography>
         <StyledButton
           variant="contained"
           color="primary"
           onClick={handleCreateNew}
         >
-          {t("DASHBOARD.BLOG.CREATE_NEW")}
+          {dict.DASHBOARD.BLOG.CREATE_NEW}
         </StyledButton>
       </Box>
 
@@ -177,13 +172,13 @@ const BlogDashboard = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>{t("DASHBOARD.BLOG.TABLE.TITLE")}</TableCell>
-              <TableCell>{t("DASHBOARD.BLOG.TABLE.STATUS")}</TableCell>
-              <TableCell>{t("DASHBOARD.BLOG.TABLE.CREATED_AT")}</TableCell>
-              <TableCell>{t("DASHBOARD.BLOG.TABLE.UPDATED_AT")}</TableCell>
-              <TableCell>{t("DASHBOARD.BLOG.TABLE.TAGS")}</TableCell>
+              <TableCell>{dict.DASHBOARD.BLOG.TABLE.TITLE}</TableCell>
+              <TableCell>{dict.DASHBOARD.BLOG.TABLE.STATUS}</TableCell>
+              <TableCell>{dict.DASHBOARD.BLOG.TABLE.CREATED_AT}</TableCell>
+              <TableCell>{dict.DASHBOARD.BLOG.TABLE.UPDATED_AT}</TableCell>
+              <TableCell>{dict.DASHBOARD.BLOG.TABLE.TAGS}</TableCell>
               <TableCell align="center">
-                {t("DASHBOARD.BLOG.TABLE.ACTIONS")}
+                {dict.DASHBOARD.BLOG.TABLE.ACTIONS}
               </TableCell>
             </TableRow>
           </TableHead>
@@ -191,7 +186,7 @@ const BlogDashboard = () => {
             {!blogs || blogs.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5} align="center">
-                  {t("DASHBOARD.BLOG.NO_POSTS")}
+                  {dict.DASHBOARD.BLOG.NO_POSTS}
                 </TableCell>
               </TableRow>
             ) : (
@@ -218,8 +213,8 @@ const BlogDashboard = () => {
                     />
                     <Typography variant="caption" sx={{ ml: 1 }}>
                       {blog.published
-                        ? t("DASHBOARD.BLOG.PUBLISHED")
-                        : t("DASHBOARD.BLOG.DRAFT")}
+                        ? dict.DASHBOARD.BLOG.PUBLISHED
+                        : dict.DASHBOARD.BLOG.DRAFT}
                     </Typography>
                   </TableCell>
                   <TableCell>{formatDate(blog.createdAt)}</TableCell>
@@ -241,13 +236,13 @@ const BlogDashboard = () => {
                           variant="caption"
                           sx={{ color: "text.secondary" }}
                         >
-                          {t("DASHBOARD.BLOG.NO_TAGS")}
+                          {dict.DASHBOARD.BLOG.NO_TAGS}
                         </Typography>
                       )}
                     </Box>
                   </TableCell>
                   <TableCell align="center">
-                    <Tooltip title={t("DASHBOARD.BLOG.EDIT")}>
+                    <Tooltip title={dict.DASHBOARD.BLOG.EDIT}>
                       <IconButton
                         color="primary"
                         sx={{
@@ -261,7 +256,7 @@ const BlogDashboard = () => {
                       </IconButton>
                     </Tooltip>
 
-                    <Tooltip title={t("DASHBOARD.BLOG.VIEW")}>
+                    <Tooltip title={dict.DASHBOARD.BLOG.VIEW}>
                       <IconButton
                         color="primary"
                         sx={{
@@ -275,7 +270,7 @@ const BlogDashboard = () => {
                       </IconButton>
                     </Tooltip>
 
-                    <Tooltip title={t("DASHBOARD.BLOG.CLONE")}>
+                    <Tooltip title={dict.DASHBOARD.BLOG.CLONE}>
                       <IconButton
                         color="primary"
                         sx={{
@@ -289,7 +284,7 @@ const BlogDashboard = () => {
                       </IconButton>
                     </Tooltip>
 
-                    <Tooltip title={t("DASHBOARD.BLOG.DELETE")}>
+                    <Tooltip title={dict.DASHBOARD.BLOG.DELETE}>
                       <IconButton
                         color="error"
                         sx={{
@@ -311,12 +306,13 @@ const BlogDashboard = () => {
       </TableContainer>
 
       <Dialog open={deleteDialogOpen} onClose={handleDeleteCancel}>
-        <DialogTitle>{t("DASHBOARD.BLOG.DELETE_CONFIRM_TITLE")}</DialogTitle>
+        <DialogTitle>{dict.DASHBOARD.BLOG.DELETE_CONFIRM_TITLE}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            {t("DASHBOARD.BLOG.DELETE_CONFIRM_MESSAGE", {
-              title: blogToDelete?.title || "",
-            })}
+            {dict.DASHBOARD.BLOG.DELETE_CONFIRM_MESSAGE.replace(
+              "{{title}}",
+              blogToDelete?.title || ""
+            )}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -325,7 +321,7 @@ const BlogDashboard = () => {
             onClick={handleDeleteCancel}
             sx={{ mr: 1, height: "40px" }}
           >
-            {t("COMMON.CANCEL")}
+            {dict.COMMON.CANCEL}
           </StyledButton>
           <StyledButton
             variant="contained"
@@ -334,7 +330,7 @@ const BlogDashboard = () => {
             autoFocus
             sx={{ height: "40px" }}
           >
-            {t("COMMON.DELETE")}
+            {dict.COMMON.DELETE}
           </StyledButton>
         </DialogActions>
       </Dialog>

@@ -59,7 +59,6 @@ const StyledAccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export function FaqAccordion({ faq }) {
   const [expanded, setExpanded] = useState();
-  console.log("FAQ:", faq);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);

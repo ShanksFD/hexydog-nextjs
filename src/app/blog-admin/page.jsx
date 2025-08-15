@@ -1,4 +1,4 @@
-import Login from "@/pages/Login/Login";
+import BlogDashboard from "@/pages/Blog/admin/BlogDashboard";
 import { getDictionary } from "../[lang]/dictionaries";
 
 export async function generateMetadata({ params }) {
@@ -6,13 +6,15 @@ export async function generateMetadata({ params }) {
   const dict = await getDictionary(lang);
 
   return {
-    title: dict.LOGIN.TITLE,
-    description: dict.LOGIN.DESCRIPTION,
+    title: dict.HELMET.HOME_PAGE.TITLE,
+    description: dict.HELMET.HOME_PAGE.DESCRIPTION,
   };
 }
 
-export default async function LoginPage({ params }) {
+const BlogPage = async ({ params }) => {
   const { lang } = await params;
   const dict = await getDictionary(lang);
-  return <Login dict={dict} />;
-}
+  return <BlogDashboard dict={dict} />;
+};
+
+export default BlogPage;

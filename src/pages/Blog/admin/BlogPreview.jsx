@@ -11,9 +11,8 @@ import {
   Alert,
   Divider,
 } from "@mui/material";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { format } from "date-fns";
-import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import {
   fetchBlogPost,
@@ -21,12 +20,13 @@ import {
   selectBlogLoading,
   selectBlogError,
 } from "../../../redux/slices/blogSlice";
-import { StyledButton } from "../../../components/Utils/UIUtils";
+import { StyledButton } from "@/components/Ui";
 
-const BlogPreview = () => {
-  const { t } = useTranslation();
+const BlogPreview = ({ dict }) => {
   const router = useRouter();
-  const id = router.query?.id;
+  const params = useParams();
+  const id = params?.id;
+
   const dispatch = useAppDispatch();
 
   const blog = useAppSelector(selectCurrentBlog);
@@ -51,7 +51,7 @@ const BlogPreview = () => {
   };
 
   const handleBack = () => {
-    router.push("/blog-admin/blogs");
+    router.push("/blog-admin");
   };
 
   if (loading && !blog) {
@@ -75,7 +75,7 @@ const BlogPreview = () => {
         <Alert severity="error">{error}</Alert>
         <Box sx={{ mt: 2 }}>
           <StyledButton variant="contained" onClick={handleBack}>
-            {t("COMMON.BACK_TO_BLOGS")}
+            {dict.COMMON.BACK_TO_BLOGS}
           </StyledButton>
         </Box>
       </Container>
@@ -85,10 +85,10 @@ const BlogPreview = () => {
   if (!blog) {
     return (
       <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Alert severity="info">{t("DASHBOARD.BLOG.NOT_FOUND")}</Alert>
+        <Alert severity="info">{dict.DASHBOARD.BLOG.NOT_FOUND}</Alert>
         <Box sx={{ mt: 2 }}>
           <StyledButton variant="contained" onClick={handleBack}>
-            {t("COMMON.BACK_TO_BLOGS")}
+            {dict.COMMON.BACK_TO_BLOGS}
           </StyledButton>
         </Box>
       </Container>
@@ -106,10 +106,10 @@ const BlogPreview = () => {
         }}
       >
         <StyledButton variant="outlined" onClick={handleBack}>
-          {t("COMMON.BACK_TO_BLOGS")}
+          {dict.COMMON.BACK_TO_BLOGS}
         </StyledButton>
         <StyledButton variant="contained" color="primary" onClick={handleEdit}>
-          {t("COMMON.EDIT")}
+          {dict.COMMON.EDIT}
         </StyledButton>
       </Box>
 
@@ -136,8 +136,8 @@ const BlogPreview = () => {
 
         <Typography variant="overline" color="text.secondary">
           {blog.published
-            ? t("DASHBOARD.BLOG.PUBLISHED")
-            : t("DASHBOARD.BLOG.DRAFT")}{" "}
+            ? dict.DASHBOARD.BLOG.PUBLISHED
+            : dict.DASHBOARD.BLOG.DRAFT}{" "}
           • {formatDate(blog.createdAt)}
         </Typography>
 
@@ -189,7 +189,7 @@ const BlogPreview = () => {
             sx={{ mt: 3, p: 2, bgcolor: "background.default", borderRadius: 1 }}
           >
             <Typography variant="h6" gutterBottom>
-              {t("DASHBOARD.BLOG.SEO_PREVIEW")}
+              {dict.DASHBOARD.BLOG.SEO_PREVIEW}
             </Typography>
             <Typography variant="subtitle1" sx={{ color: "primary.main" }}>
               {blog.seo.title || blog.title}
