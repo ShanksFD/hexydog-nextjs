@@ -1,13 +1,8 @@
-"use client";
-
 import { Box, Container, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 
 import FaqSummary from "@/components/Faq/FaqSummary";
 
-export default function Faq() {
-  const { t } = useTranslation();
-
+export default function Faq({ dict }) {
   return (
     <Container
       sx={{
@@ -32,12 +27,12 @@ export default function Faq() {
               color: "primary.neutral100",
             }}
           >
-            {t("HOME_PAGE.FAQ.TITLE")}
+            {dict.HOME_PAGE.FAQ.TITLE}
           </Typography>
         </Stack>
 
         <Box sx={{ width: { xs: "100%", md: "70%" }, mx: "auto" }}>
-          <FaqSummary />
+          <FaqSummary dict={dict} />
         </Box>
       </Stack>
     </Container>

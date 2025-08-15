@@ -1,9 +1,8 @@
+import { theme } from "@/lib/theme";
 import { alpha, Box, Container, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { useTheme } from "@emotion/react";
 import Image from "next/image";
 
-const Feature = ({ icon, title, description, theme, i }) => {
+const Feature = ({ icon, title, description, theme }) => {
   return (
     <Stack
       sx={{
@@ -59,10 +58,7 @@ const Feature = ({ icon, title, description, theme, i }) => {
   );
 };
 
-export default function HowToBuy() {
-  const { t } = useTranslation();
-  const theme = useTheme();
-
+export default function HowToBuy({ dict }) {
   const features = [
     {
       icon: (
@@ -73,8 +69,8 @@ export default function HowToBuy() {
           height={48}
         />
       ),
-      title: t("HOME_PAGE.HOW_TO_BUY.FEATURES.0.TITLE"),
-      description: t("HOME_PAGE.HOW_TO_BUY.FEATURES.0.DESCRIPTION"),
+      title: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[0].TITLE,
+      description: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[0].DESCRIPTION,
     },
     {
       icon: (
@@ -85,8 +81,8 @@ export default function HowToBuy() {
           height={48}
         />
       ),
-      title: t("HOME_PAGE.HOW_TO_BUY.FEATURES.1.TITLE"),
-      description: t("HOME_PAGE.HOW_TO_BUY.FEATURES.1.DESCRIPTION"),
+      title: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[1].TITLE,
+      description: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[1].DESCRIPTION,
     },
     {
       icon: (
@@ -97,8 +93,8 @@ export default function HowToBuy() {
           height={48}
         />
       ),
-      title: t("HOME_PAGE.HOW_TO_BUY.FEATURES.2.TITLE"),
-      description: t("HOME_PAGE.HOW_TO_BUY.FEATURES.2.DESCRIPTION"),
+      title: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[2].TITLE,
+      description: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[2].DESCRIPTION,
     },
     {
       icon: (
@@ -109,8 +105,8 @@ export default function HowToBuy() {
           height={48}
         />
       ),
-      title: t("HOME_PAGE.HOW_TO_BUY.FEATURES.3.TITLE"),
-      description: t("HOME_PAGE.HOW_TO_BUY.FEATURES.3.DESCRIPTION"),
+      title: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[3].TITLE,
+      description: dict.HOME_PAGE.HOW_TO_BUY.FEATURES[3].DESCRIPTION,
     },
   ];
 
@@ -189,7 +185,7 @@ export default function HowToBuy() {
                   zIndex: 2,
                 }}
               >
-                {t("HOME_PAGE.HOW_TO_BUY.TITLE")}
+                {dict.HOME_PAGE.HOW_TO_BUY.TITLE}
               </Typography>
               <Typography
                 variant="h4"
@@ -201,7 +197,7 @@ export default function HowToBuy() {
                   zIndex: 2,
                 }}
               >
-                {t("HOME_PAGE.HOW_TO_BUY.SUBTITLE")}
+                {dict.HOME_PAGE.HOW_TO_BUY.SUBTITLE}
               </Typography>
             </Stack>
             <Typography
@@ -216,7 +212,7 @@ export default function HowToBuy() {
                 zIndex: 2,
               }}
             >
-              {t("HOME_PAGE.HOW_TO_BUY.PARAGRAPH")}
+              {dict.HOME_PAGE.HOW_TO_BUY.PARAGRAPH}
             </Typography>
           </Stack>
           <Stack gap={2} sx={{ width: { xs: "100%", sm: "90%", md: "70%" } }}>
@@ -228,7 +224,6 @@ export default function HowToBuy() {
               {features.slice(0, 2).map((feature, i) => (
                 <Feature
                   key={i}
-                  i={i}
                   icon={feature.icon}
                   title={feature.title}
                   description={feature.description}

@@ -2,12 +2,9 @@
 
 import { Stack, Typography, FormControl, alpha, Alert } from "@mui/material";
 import { Form, Formik } from "formik";
-import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
-import { TextField } from "../../components/Inputs/TextField";
 import { loginSchema } from "../../schemas";
-import { StyledButton } from "../../components/Utils/UIUtils";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   selectAuthLoading,
@@ -17,9 +14,10 @@ import {
 } from "../../redux/slices/authSlice";
 import { theme } from "@/lib/theme";
 import { useRouter } from "next/navigation";
+import { StyledButton } from "@/components/Ui";
+import { TextField } from "@/components/Inputs/TextField";
 
-const Login = () => {
-  const { t } = useTranslation();
+const Login = ({ dict }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const loading = useAppSelector(selectAuthLoading);
@@ -54,7 +52,7 @@ const Login = () => {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={handleSubmit}
-        validationSchema={loginSchema(t)}
+        validationSchema={loginSchema(dict)}
       >
         {({ handleChange, errors }) => (
           <Stack
@@ -78,13 +76,13 @@ const Login = () => {
                   textTransform: "uppercase",
                 }}
               >
-                {t("LOGIN.TITLE")}
+                {dict.LOGIN.TITLE}
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ fontSize: "16px", color: theme.palette.text.secondary }}
               >
-                {t("LOGIN.PLEASE_LOGIN")}
+                {dict.LOGIN.PLEASE_LOGIN}
               </Typography>
             </Stack>
 
@@ -107,10 +105,10 @@ const Login = () => {
                 htmlFor="email"
                 sx={{ fontSize: "16px", color: theme.palette.text.primary }}
               >
-                {t("LOGIN.EMAIL")}
+                {dict.LOGIN.EMAIL}
               </Typography>
               <TextField
-                placeholder={t("LOGIN.EMAIL_PLACEHOLDER")}
+                placeholder={dict.LOGIN.EMAIL_PLACEHOLDER}
                 type="email"
                 name="email"
                 autoComplete="email"
@@ -151,7 +149,7 @@ const Login = () => {
                 htmlFor="password"
                 sx={{ fontSize: "16px", color: theme.palette.text.primary }}
               >
-                {t("LOGIN.PASSWORD")}
+                {dict.LOGIN.PASSWORD}
               </Typography>
               <TextField
                 placeholder="********"
@@ -192,7 +190,7 @@ const Login = () => {
               sx={{ width: "100%" }}
               disabled={loading}
             >
-              {t("LOGIN.LOGIN_BUTTON")}
+              {dict.LOGIN.LOGIN_BUTTON}
             </StyledButton>
           </Stack>
         )}

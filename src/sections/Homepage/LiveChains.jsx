@@ -1,13 +1,8 @@
-"use client";
-
 import { alpha, Box, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import { theme } from "@/lib/theme";
 
-const LiveChains = () => {
-  const { t } = useTranslation();
-
+const LiveChains = ({ dict }) => {
   const chains = [
     { icon: "/images/eth.webp", name: "Ethereum", live: true },
     { icon: "/images/bsc.webp", name: "Binance", live: true },
@@ -16,6 +11,22 @@ const LiveChains = () => {
     { icon: "/images/base.webp", name: "Base", live: false },
     { icon: "/images/solana.webp", name: "Solana", live: true },
   ];
+
+  const parseStyledText = (text, components) => {
+    return text.split(/(<\w+>.*?<\/\w+>)/g).map((part, index) => {
+      const match = part.match(/<(\w+)>(.*?)<\/\1>/);
+      if (match) {
+        const [, componentName, content] = match;
+        const Component = components[componentName];
+        return Component ? (
+          <Component key={index}>{content}</Component>
+        ) : (
+          content
+        );
+      }
+      return part;
+    });
+  };
 
   return (
     <Stack
@@ -75,7 +86,31 @@ const LiveChains = () => {
           position: "relative",
         }}
       >
-        {t("HOME_PAGE.LIVE_CHAINS.TITLE")}
+        {dict.HOME_PAGE.LIVE_CHAINS.TITLE}
+      </Typography>
+
+      <Typography
+        variant="body1"
+        sx={{
+          textAlign: "center",
+          fontSize: "20px",
+          fontWeight: "400",
+          zIndex: 2,
+          color: "white",
+          position: "relative",
+          mb: 2,
+        }}
+      >
+        {parseStyledText(dict.HOME_PAGE.LIVE_CHAINS.DESCRIPTION, {
+          hexy: ({ children }) => (
+            <Typography
+              component="span"
+              sx={{ color: "primary.secondary", fontWeight: "600" }}
+            >
+              {children}
+            </Typography>
+          ),
+        })}
       </Typography>
 
       <Stack
@@ -119,7 +154,7 @@ const LiveChains = () => {
                 }}
               />
               <Typography sx={{ fontSize: "12px", color: "black" }}>
-                {t("HOME_PAGE.HERO.PRESALE.STATUS")}
+                {dict.HOME_PAGE.HERO.PRESALE.STATUS}
               </Typography>
             </Stack>
           </Stack>

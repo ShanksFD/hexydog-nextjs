@@ -1,15 +1,9 @@
-"use client";
-
 import { Container, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import Link from "next/link";
 
 import LiveChains from "./LiveChains";
 
-export default function About() {
-  const { t } = useTranslation();
-
+export default function About({ dict }) {
   return (
     <Container
       component="section"
@@ -20,23 +14,7 @@ export default function About() {
       maxWidth="lg"
       id="about"
     >
-      <Link
-        href="/stake"
-        style={{
-          position: "absolute",
-          width: "1px",
-          height: "1px",
-          padding: "0",
-          margin: "-1px",
-          overflow: "hidden",
-          clip: "rect(0, 0, 0, 0)",
-          whiteSpace: "nowrap",
-          border: "0",
-        }}
-      >
-        {t("HOME_PAGE.STAKE.TITLE") || "Stake HexyDog"}
-      </Link>
-      <LiveChains />
+      <LiveChains dict={dict} />
 
       <Stack
         direction={{ xs: "column", md: "row" }}
@@ -63,7 +41,7 @@ export default function About() {
                   color: "primary.main",
                 }}
               >
-                {t("HOME_PAGE.ABOUT.TITLE")}
+                {dict.HOME_PAGE.ABOUT.TITLE}
               </Typography>
 
               <Typography
@@ -74,7 +52,7 @@ export default function About() {
                   color: "common.white",
                 }}
               >
-                {t("HOME_PAGE.ABOUT.SUBTITLE")}
+                {dict.HOME_PAGE.ABOUT.SUBTITLE}
               </Typography>
             </Stack>
             <Typography
@@ -85,7 +63,7 @@ export default function About() {
                 fontWeight: "300",
               }}
             >
-              {t("HOME_PAGE.ABOUT.PARAGRAPH")}
+              {dict.HOME_PAGE.ABOUT.PARAGRAPH}
             </Typography>
           </Stack>
         </Stack>

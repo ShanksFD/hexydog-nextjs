@@ -1,8 +1,5 @@
-"use client";
-
+import { theme } from "@/lib/theme";
 import { alpha, Box, Container, Grid, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { useTheme } from "@emotion/react";
 import Image from "next/image";
 
 const Feature = ({ icon, title, description, theme, i }) => {
@@ -58,10 +55,7 @@ const Feature = ({ icon, title, description, theme, i }) => {
   );
 };
 
-export default function Features() {
-  const { t } = useTranslation();
-  const theme = useTheme();
-
+export default function Features({ dict }) {
   const features = [
     {
       icon: (
@@ -73,8 +67,8 @@ export default function Features() {
           style={{ objectFit: "contain" }}
         />
       ),
-      title: t("HOME_PAGE.FEATURES.FEATURES.0.TITLE"),
-      description: t("HOME_PAGE.FEATURES.FEATURES.0.DESCRIPTION"),
+      title: dict.HOME_PAGE.FEATURES.FEATURES[0].TITLE,
+      description: dict.HOME_PAGE.FEATURES.FEATURES[0].DESCRIPTION,
     },
     {
       icon: (
@@ -86,8 +80,8 @@ export default function Features() {
           style={{ objectFit: "contain" }}
         />
       ),
-      title: t("HOME_PAGE.FEATURES.FEATURES.1.TITLE"),
-      description: t("HOME_PAGE.FEATURES.FEATURES.1.DESCRIPTION"),
+      title: dict.HOME_PAGE.FEATURES.FEATURES[1].TITLE,
+      description: dict.HOME_PAGE.FEATURES.FEATURES[1].DESCRIPTION,
     },
     {
       icon: (
@@ -99,8 +93,8 @@ export default function Features() {
           style={{ objectFit: "contain" }}
         />
       ),
-      title: t("HOME_PAGE.FEATURES.FEATURES.2.TITLE"),
-      description: t("HOME_PAGE.FEATURES.FEATURES.2.DESCRIPTION"),
+      title: dict.HOME_PAGE.FEATURES.FEATURES[2].TITLE,
+      description: dict.HOME_PAGE.FEATURES.FEATURES[2].DESCRIPTION,
     },
     {
       icon: (
@@ -112,8 +106,8 @@ export default function Features() {
           style={{ objectFit: "contain" }}
         />
       ),
-      title: t("HOME_PAGE.FEATURES.FEATURES.3.TITLE"),
-      description: t("HOME_PAGE.FEATURES.FEATURES.3.DESCRIPTION"),
+      title: dict.HOME_PAGE.FEATURES.FEATURES[3].TITLE,
+      description: dict.HOME_PAGE.FEATURES.FEATURES[3].DESCRIPTION,
     },
     {
       icon: (
@@ -125,8 +119,8 @@ export default function Features() {
           style={{ objectFit: "contain" }}
         />
       ),
-      title: t("HOME_PAGE.FEATURES.FEATURES.4.TITLE"),
-      description: t("HOME_PAGE.FEATURES.FEATURES.4.DESCRIPTION"),
+      title: dict.HOME_PAGE.FEATURES.FEATURES[4].TITLE,
+      description: dict.HOME_PAGE.FEATURES.FEATURES[4].DESCRIPTION,
     },
     {
       icon: (
@@ -138,8 +132,8 @@ export default function Features() {
           style={{ objectFit: "contain" }}
         />
       ),
-      title: t("HOME_PAGE.FEATURES.FEATURES.5.TITLE"),
-      description: t("HOME_PAGE.FEATURES.FEATURES.5.DESCRIPTION"),
+      title: dict.HOME_PAGE.FEATURES.FEATURES[5].TITLE,
+      description: dict.HOME_PAGE.FEATURES.FEATURES[5].DESCRIPTION,
     },
   ];
 
@@ -213,7 +207,7 @@ export default function Features() {
                 textAlign: "center",
               }}
             >
-              {t("HOME_PAGE.FEATURES.TITLE")}
+              {dict.HOME_PAGE.FEATURES.TITLE}
             </Typography>
             <Typography
               variant="h4"
@@ -224,7 +218,7 @@ export default function Features() {
                 textAlign: "center",
               }}
             >
-              {t("HOME_PAGE.FEATURES.SUBTITLE")}
+              {dict.HOME_PAGE.FEATURES.SUBTITLE}
             </Typography>
           </Stack>
           <Grid container spacing={2} sx={{ mt: "32px" }}>

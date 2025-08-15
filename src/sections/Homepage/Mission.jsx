@@ -1,28 +1,23 @@
-"use client";
-
 import { Container, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import { Groups, VolunteerActivism, Stars } from "@mui/icons-material";
 import Image from "next/image";
 
-export default function Mission() {
-  const { t } = useTranslation();
-
+export default function Mission({ dict }) {
   const missions = [
     {
       icon: <Groups sx={{ fontSize: "26px", color: "white" }} />,
-      title: t("HOME_PAGE.MISSION.MISSIONS.0.TITLE"),
-      description: t("HOME_PAGE.MISSION.MISSIONS.0.DESCRIPTION"),
+      title: dict.HOME_PAGE.MISSION.MISSIONS[0].TITLE,
+      description: dict.HOME_PAGE.MISSION.MISSIONS[0].DESCRIPTION,
     },
     {
       icon: <VolunteerActivism sx={{ fontSize: "26px", color: "white" }} />,
-      title: t("HOME_PAGE.MISSION.MISSIONS.1.TITLE"),
-      description: t("HOME_PAGE.MISSION.MISSIONS.1.DESCRIPTION"),
+      title: dict.HOME_PAGE.MISSION.MISSIONS[1].TITLE,
+      description: dict.HOME_PAGE.MISSION.MISSIONS[1].DESCRIPTION,
     },
     {
       icon: <Stars sx={{ fontSize: "26px", color: "white" }} />,
-      title: t("HOME_PAGE.MISSION.MISSIONS.2.TITLE"),
-      description: t("HOME_PAGE.MISSION.MISSIONS.2.DESCRIPTION"),
+      title: dict.HOME_PAGE.MISSION.MISSIONS[2].TITLE,
+      description: dict.HOME_PAGE.MISSION.MISSIONS[2].DESCRIPTION,
     },
   ];
 
@@ -98,7 +93,7 @@ export default function Mission() {
                 color: "primary.main",
               }}
             >
-              {t("HOME_PAGE.MISSION.TITLE")}
+              {dict.HOME_PAGE.MISSION.TITLE}
             </Typography>
             <Typography
               variant="h4"
@@ -108,7 +103,7 @@ export default function Mission() {
                 color: "common.white",
               }}
             >
-              {t("HOME_PAGE.MISSION.SUBTITLE")}
+              {dict.HOME_PAGE.MISSION.SUBTITLE}
             </Typography>
           </Stack>
           <Typography
@@ -119,7 +114,7 @@ export default function Mission() {
               fontWeight: "300",
             }}
           >
-            {t("HOME_PAGE.MISSION.PARAGRAPH")}
+            {dict.HOME_PAGE.MISSION.PARAGRAPH}
           </Typography>
 
           <Stack gap={2}>
