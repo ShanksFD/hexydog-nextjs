@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -27,6 +27,8 @@ const BlogPreview = ({ dict }) => {
   const params = useParams();
   const id = params?.id;
 
+  const [origin, setOrigin] = useState("");
+
   const dispatch = useAppDispatch();
 
   const blog = useAppSelector(selectCurrentBlog);
@@ -34,7 +36,15 @@ const BlogPreview = ({ dict }) => {
   const error = useAppSelector(selectBlogError);
 
   useEffect(() => {
-    dispatch(fetchBlogPost(id));
+    if (typeof window !== "undefined") {
+      setOrigin(window.location.origin);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchBlogPost(id));
+    }
   }, [dispatch, id]);
 
   const formatDate = (timestamp) => {
@@ -194,9 +204,11 @@ const BlogPreview = ({ dict }) => {
             <Typography variant="subtitle1" sx={{ color: "primary.main" }}>
               {blog.seo.title || blog.title}
             </Typography>
-            <Typography variant="body2" sx={{ color: "success.main" }}>
-              {window.location.origin}/blog/{blog.slug}
-            </Typography>
+            {origin && (
+              <Typography variant="body2" sx={{ color: "success.main" }}>
+                {origin}/blog/{blog.slug}
+              </Typography>
+            )}
             <Typography variant="body2" sx={{ mt: 1 }}>
               {blog.seo.description || blog.excerpt}
             </Typography>
