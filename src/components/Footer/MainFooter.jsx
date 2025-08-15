@@ -9,15 +9,11 @@ import {
   lighten,
   Grid,
 } from "@mui/material";
-import { useTranslation } from "react-i18next";
 
-import { footerSocials, getTransitionStyle } from "../Utils/UIUtils";
 import { theme } from "@/lib/theme";
+import { footerSocials } from "../Ui";
 
-export default function MainFooter() {
-  const { t } = useTranslation();
-  const linkTransition = getTransitionStyle(theme, ["color", "transform"]);
-
+export default function MainFooter({ dict }) {
   return (
     <Box
       sx={{
@@ -39,7 +35,7 @@ export default function MainFooter() {
                 color: "primary.neutral100",
               }}
             >
-              {t("MAIN_FOOTER.DISCLAIMER_TITLE")}
+              {dict.MAIN_FOOTER.DISCLAIMER_TITLE}
             </Typography>
             <Typography
               sx={{
@@ -49,7 +45,7 @@ export default function MainFooter() {
                 lineHeight: 1.5,
               }}
             >
-              {t("MAIN_FOOTER.DISCLAIMER")}
+              {dict.MAIN_FOOTER.DISCLAIMER}
             </Typography>
             <Typography
               sx={{
@@ -75,7 +71,7 @@ export default function MainFooter() {
                   color: "primary.neutral100",
                 }}
               >
-                {t("MAIN_FOOTER.SOCIAL_LINKS")}
+                {dict.MAIN_FOOTER.SOCIAL_LINKS}
               </Typography>
 
               <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
@@ -106,7 +102,6 @@ export default function MainFooter() {
                         ),
                         transform: "translateY(-2px)",
                       },
-                      ...linkTransition,
                     }}
                   >
                     {link.logo}
@@ -126,7 +121,6 @@ export default function MainFooter() {
                     color: "primary.neutral400",
                     textDecoration: "underline",
                   },
-                  ...linkTransition,
                 }}
               >
                 <Box

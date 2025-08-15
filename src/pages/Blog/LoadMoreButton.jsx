@@ -26,16 +26,15 @@ import {
 } from "firebase/firestore";
 
 import { app } from "../../firebase";
-import { StyledButton } from "../../components/Utils/UIUtils";
 import { theme } from "@/lib/theme";
+import { StyledButton } from "@/components/Ui";
 
 const db = getFirestore(app);
 
-const LoadMoreButton = ({ initialBlogs, translations }) => {
+const LoadMoreButton = ({ initialBlogs, dict, lang }) => {
   const [blogs, setBlogs] = useState(initialBlogs);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(initialBlogs.length >= 6);
-  const [lastVisible, setLastVisible] = useState(null);
   const pageSize = 6;
 
   const formatDate = (date) => {
@@ -89,9 +88,6 @@ const LoadMoreButton = ({ initialBlogs, translations }) => {
 
         setBlogs((prev) => [...prev, ...newBlogs]);
         setHasMore(blogSnapshot.docs.length === pageSize);
-
-        const lastDoc = blogSnapshot.docs[blogSnapshot.docs.length - 1];
-        setLastVisible(lastDoc);
       }
     } catch (error) {
       console.error("Error fetching more blogs:", error);
@@ -121,7 +117,7 @@ const LoadMoreButton = ({ initialBlogs, translations }) => {
             >
               <CardActionArea
                 component={Link}
-                href={`/blog/${blog.slug || blog.id}`}
+                href={`/${lang}/blog/${blog.slug || blog.id}`}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -246,7 +242,7 @@ const LoadMoreButton = ({ initialBlogs, translations }) => {
             {loading && (
               <CircularProgress size={24} color="inherit" sx={{ mr: 1 }} />
             )}
-            {translations.loadMore || "Load More"}
+            {dict.COMMON.LOAD_MORE}
           </StyledButton>
         </Box>
       )}

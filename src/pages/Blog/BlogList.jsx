@@ -5,7 +5,7 @@ import { Box, Container, Typography, Stack, Breadcrumbs } from "@mui/material";
 import { theme } from "@/lib/theme";
 import LoadMoreButton from "./LoadMoreButton";
 
-const BlogList = ({ initialBlogs = [], translations = {} }) => {
+const BlogList = ({ initialBlogs = [], dict, lang }) => {
   return (
     <Box sx={{ minHeight: "100vh", py: 12 }}>
       <Stack
@@ -20,9 +20,9 @@ const BlogList = ({ initialBlogs = [], translations = {} }) => {
         <Container maxWidth="lg">
           <Breadcrumbs aria-label="breadcrumb">
             <Link href="/" style={{ color: "white" }}>
-              {translations.home || "Home"}
+              {dict.NAVIGATION.HOME}
             </Link>
-            <Typography>{translations.blog || "Blog"}</Typography>
+            <Typography>{dict.NAVIGATION.BLOG}</Typography>
           </Breadcrumbs>
           <Typography
             variant="h1"
@@ -34,7 +34,7 @@ const BlogList = ({ initialBlogs = [], translations = {} }) => {
               maxWidth: 700,
             }}
           >
-            {translations.blogTitle || "Latest News and Updates"}
+            {dict.BLOG.TITLE}
           </Typography>
           <Typography
             variant="body1"
@@ -45,8 +45,7 @@ const BlogList = ({ initialBlogs = [], translations = {} }) => {
               maxWidth: 700,
             }}
           >
-            {translations.blogDescription ||
-              "Stay updated with the latest news, insights, and developments from the HEXYDOG ecosystem."}
+            {dict.BLOG.DESCRIPTION}
           </Typography>
         </Container>
       </Stack>
@@ -59,14 +58,11 @@ const BlogList = ({ initialBlogs = [], translations = {} }) => {
               sx={{ fontSize: "1rem", color: "primary.neutral500" }}
               gutterBottom
             >
-              {translations.noPosts || "No blog posts available"}
+              {dict.BLOG.NO_POSTS || "No blog posts available"}
             </Typography>
           </Box>
         ) : (
-          <LoadMoreButton
-            initialBlogs={initialBlogs}
-            translations={translations}
-          />
+          <LoadMoreButton initialBlogs={initialBlogs} dict={dict} lang={lang} />
         )}
       </Container>
     </Box>

@@ -1,7 +1,4 @@
-"use client";
-
 import { Box, Container, Stack, Typography, alpha } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import Image from "next/image";
 
 const tokenomicsData = [
@@ -14,9 +11,7 @@ const tokenomicsData = [
   { title: "CHARITY", value: 5, tokens: 1000000000, color: "#FE948F" },
 ];
 
-export default function Tokenomics() {
-  const { t } = useTranslation();
-
+export default function Tokenomics({ dict }) {
   return (
     <Box
       sx={{
@@ -38,7 +33,7 @@ export default function Tokenomics() {
                 color: "primary.main",
               }}
             >
-              {t("HOME_PAGE.TOKENOMICS.TITLE")}
+              {dict.HOME_PAGE.TOKENOMICS.TITLE}
             </Typography>
 
             <Typography
@@ -49,7 +44,7 @@ export default function Tokenomics() {
                 color: "common.white",
               }}
             >
-              {t("HOME_PAGE.TOKENOMICS.SUBTITLE")}
+              {dict.HOME_PAGE.TOKENOMICS.SUBTITLE}
             </Typography>
 
             <Stack spacing={0.5}>
@@ -61,7 +56,7 @@ export default function Tokenomics() {
                   color: "primary.neutral200",
                 }}
               >
-                {t("HOME_PAGE.TOKENOMICS.TOTAL_SUPPLY")}: 20,000,000,000 HEXY
+                {dict.HOME_PAGE.TOKENOMICS.TOTAL_SUPPLY}: 20,000,000,000 HEXY
               </Typography>
             </Stack>
           </Stack>
@@ -100,7 +95,7 @@ export default function Tokenomics() {
                     color="white"
                     sx={{ fontSize: "16px" }}
                   >
-                    {t("HOME_PAGE.TOKENOMICS.TABLE.FUND")}
+                    {dict.HOME_PAGE.TOKENOMICS.TABLE.FUND}
                   </Typography>
                   <Typography
                     variant="h4"
@@ -108,7 +103,7 @@ export default function Tokenomics() {
                     color="white"
                     sx={{ textAlign: "center", fontSize: "16px" }}
                   >
-                    {t("HOME_PAGE.TOKENOMICS.TABLE.ALLOCATION")}
+                    {dict.HOME_PAGE.TOKENOMICS.TABLE.ALLOCATION}
                   </Typography>
                   <Typography
                     variant="h4"
@@ -116,7 +111,7 @@ export default function Tokenomics() {
                     color="white"
                     sx={{ textAlign: "right", fontSize: "16px" }}
                   >
-                    {t("HOME_PAGE.TOKENOMICS.TABLE.TOKEN")}
+                    {dict.HOME_PAGE.TOKENOMICS.TABLE.TOKEN}
                   </Typography>
                 </Box>
 
@@ -151,7 +146,7 @@ export default function Tokenomics() {
                         color="common.white"
                         fontWeight="500"
                       >
-                        {t(`HOME_PAGE.TOKENOMICS.${item.title}`)}
+                        {dict.HOME_PAGE.TOKENOMICS[item.title]}
                       </Typography>
                     </Stack>
 

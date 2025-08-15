@@ -1,18 +1,15 @@
+"use client";
+
 import {
   Button,
   styled,
   TextField,
-  Box,
-  CircularProgress,
-  circularProgressClasses,
   Link,
   lighten,
   darken,
 } from "@mui/material";
-import { X, Telegram, Mail } from "@mui/icons-material";
-import { theme } from "@/lib/theme";
 
-export const getTransitionStyle = (theme, properties) => {
+const getTransitionStyle = (theme, properties) => {
   const transitionProperties = properties.map((property) => {
     return `${property} ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`;
   });
@@ -113,121 +110,3 @@ export const CustomTextField = styled(TextField)(
     },
   })
 );
-
-export const WebsiteLoader = () => {
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        width: "100vw",
-      }}
-    >
-      <CircularProgress
-        variant="indeterminate"
-        disableShrink
-        sx={{
-          color: theme.palette.primary.main,
-          animationDuration: "500ms",
-          [`& .${circularProgressClasses.circle}`]: {
-            strokeLinecap: "round",
-          },
-        }}
-        size={40}
-        thickness={4}
-      />
-    </Box>
-  );
-};
-
-export const GlobalLoader = ({ size = 20, thickness = 4, color }) => {
-  return (
-    <CircularProgress
-      variant="indeterminate"
-      disableShrink
-      sx={{
-        color: color || theme.palette.primary.main,
-        animationDuration: "500ms",
-        [`& .${circularProgressClasses.circle}`]: {
-          strokeLinecap: "round",
-        },
-      }}
-      size={size}
-      thickness={thickness}
-    />
-  );
-};
-
-export const footerSocials = [
-  {
-    url: "https://x.com/hexydog",
-    logo: <X style={{ fontSize: "24px" }} />,
-  },
-  {
-    url: "mailto:info@hexydog.com",
-    logo: <Mail style={{ fontSize: "24px" }} />,
-  },
-  {
-    url: "https://t.me/hexydog",
-    logo: <Telegram style={{ fontSize: "24px" }} />,
-  },
-];
-
-export const headerSocials = [
-  {
-    url: "https://x.com/hexydog",
-    logo: (
-      <X
-        style={{
-          fontSize: "20px",
-          color: theme.palette.common.white,
-          display: "flex",
-        }}
-      />
-    ),
-  },
-  {
-    url: "https://t.me/hexydog",
-    logo: (
-      <Telegram
-        style={{
-          fontSize: "22px",
-          color: theme.palette.common.white,
-          display: "flex",
-        }}
-      />
-    ),
-  },
-];
-
-export const formatNumber = (number) => {
-  return new Intl.NumberFormat("en-US").format(number);
-};
-
-export const formatCryptoAddress = (address) => {
-  if (!address) {
-    return "";
-  }
-
-  return `${address.slice(0, 6)}...${address.slice(-4)}`;
-};
-
-export function formatBalance({ decimals, value, symbol }) {
-  const actualValue = Number(value) / Math.pow(10, decimals);
-
-  const formattedValue = actualValue.toFixed(3);
-
-  return `${formattedValue}${symbol}`;
-}
-
-export function truncateToTwoDecimals(num) {
-  const numStr = num.toString();
-  const [integerPart, decimalPart] = numStr.split(".");
-
-  // Truncate the decimal part to 2 digits if it exists
-  const truncatedDecimal = decimalPart ? decimalPart.substring(0, 2) : "00";
-
-  return `${integerPart}.${truncatedDecimal}`;
-}

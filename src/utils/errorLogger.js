@@ -8,15 +8,6 @@ import { app } from "../firebase";
 
 const db = getFirestore(app);
 
-/**
- * Log wallet connection errors to Firebase
- * @param {Object} errorData - Error information
- * @param {string} errorData.message - Error message
- * @param {string} errorData.walletType - Wallet type (trust, coinbase, etc.)
- * @param {Object} [errorData.error] - Original error object
- * @param {Object} [errorData.metadata] - Additional metadata
- * @returns {Promise<string|null>} - Document ID or null if failed
- */
 export const logWalletError = async (errorData) => {
   try {
     const errorCollection = collection(db, "walletErrors");
@@ -26,7 +17,6 @@ export const logWalletError = async (errorData) => {
       walletType: errorData.walletType || "unknown",
       userAgent: navigator.userAgent,
       isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
-      // Only include these fields if they exist
       ...(errorData.error?.code !== undefined && {
         errorCode: errorData.error.code,
       }),
@@ -46,10 +36,6 @@ export const logWalletError = async (errorData) => {
   }
 };
 
-/**
- * Detect wallet type from window.ethereum provider
- * @returns {string} Wallet type identifier
- */
 export const detectWalletType = () => {
   if (!window.ethereum) return "unknown";
 

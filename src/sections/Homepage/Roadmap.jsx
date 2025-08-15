@@ -1,66 +1,30 @@
-"use client";
-
 import { Box, Stack, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { darken, lighten } from "@mui/material/styles";
-import Slider from "react-slick";
-import Image from "next/image";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { theme } from "@/lib/theme";
+import RoadmapSlider from "./Components/RoadmapSlider";
 
-export default function Roadmap() {
-  const { t } = useTranslation();
-
+export default async function Roadmap({ dict }) {
   const roadmapList = [
     {
-      title: t("HOME_PAGE.ROADMAP.PHASES.0.TITLE"),
-      subtitle: t("HOME_PAGE.ROADMAP.PHASES.0.SUBTITLE"),
-      list: t("HOME_PAGE.ROADMAP.PHASES.0.LIST", { returnObjects: true }) || [],
+      title: dict.HOME_PAGE.ROADMAP.PHASES[0].TITLE,
+      subtitle: dict.HOME_PAGE.ROADMAP.PHASES[0].SUBTITLE,
+      list: dict.HOME_PAGE.ROADMAP.PHASES[0].LIST || [],
     },
     {
-      title: t("HOME_PAGE.ROADMAP.PHASES.1.TITLE"),
-      subtitle: t("HOME_PAGE.ROADMAP.PHASES.1.SUBTITLE"),
-      list: t("HOME_PAGE.ROADMAP.PHASES.1.LIST", { returnObjects: true }) || [],
+      title: dict.HOME_PAGE.ROADMAP.PHASES[1].TITLE,
+      subtitle: dict.HOME_PAGE.ROADMAP.PHASES[1].SUBTITLE,
+      list: dict.HOME_PAGE.ROADMAP.PHASES[1].LIST || [],
     },
     {
-      title: t("HOME_PAGE.ROADMAP.PHASES.2.TITLE"),
-      subtitle: t("HOME_PAGE.ROADMAP.PHASES.2.SUBTITLE"),
-      list: t("HOME_PAGE.ROADMAP.PHASES.2.LIST", { returnObjects: true }) || [],
+      title: dict.HOME_PAGE.ROADMAP.PHASES[2].TITLE,
+      subtitle: dict.HOME_PAGE.ROADMAP.PHASES[2].SUBTITLE,
+      list: dict.HOME_PAGE.ROADMAP.PHASES[2].LIST || [],
     },
     {
-      title: t("HOME_PAGE.ROADMAP.PHASES.3.TITLE"),
-      subtitle: t("HOME_PAGE.ROADMAP.PHASES.3.SUBTITLE"),
-      list: t("HOME_PAGE.ROADMAP.PHASES.3.LIST", { returnObjects: true }) || [],
+      title: dict.HOME_PAGE.ROADMAP.PHASES[3].TITLE,
+      subtitle: dict.HOME_PAGE.ROADMAP.PHASES[3].SUBTITLE,
+      list: dict.HOME_PAGE.ROADMAP.PHASES[3].LIST || [],
     },
   ];
-
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    arrows: false,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    dotsClass: "slick-dots1 slick-thumb1",
-    responsive: [
-      {
-        breakpoint: 960,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
   return (
     <Box
@@ -129,7 +93,7 @@ export default function Roadmap() {
               color: "primary.neutral100",
             }}
           >
-            {t("HOME_PAGE.ROADMAP.TITLE")}
+            {dict.HOME_PAGE.ROADMAP.TITLE}
           </Typography>
 
           <Typography
@@ -143,118 +107,12 @@ export default function Roadmap() {
               mx: "auto",
             }}
           >
-            {t("HOME_PAGE.ROADMAP.TEXT")}
+            {dict.HOME_PAGE.ROADMAP.TEXT}
           </Typography>
         </Stack>
 
         <Box sx={{ mt: 2 }}>
-          <Slider {...settings}>
-            {roadmapList.map((phase, index) => (
-              <Box key={index}>
-                <div>
-                  <Stack
-                    sx={{
-                      border: "1px solid",
-                      borderColor: "primary.neutral900",
-                      p: "75px 40px 65px",
-                      borderRadius: "15px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      alignItems: "stretch",
-                      cursor: "grab",
-                      backgroundColor: darken(
-                        theme.palette.primary.neutral900,
-                        0.25
-                      ),
-                      mx: 1.5,
-                      mt: 12,
-                      height: "100%",
-                      minHeight: "340px",
-                    }}
-                  >
-                    <Stack direction={"column"} gap={2}>
-                      <Stack direction={"row"} gap={2} alignItems={"center"}>
-                        <Box
-                          sx={{
-                            width: "32px",
-                            height: "32px",
-                            minWidth: "32px",
-                            minHeight: "32px",
-                            flexShrink: 0,
-                            borderRadius: "50%",
-                            backgroundColor: theme.palette.primary.neutral900,
-                            position: "relative",
-                            "&::before": {
-                              content: '""',
-                              position: "absolute",
-                              height: "16px",
-                              width: "16px",
-                              left: "50%",
-                              top: "50%",
-                              transform: "translate(-50%, -50%)",
-                              backgroundImage: `linear-gradient(180deg, ${
-                                theme.palette.primary.main
-                              }, ${darken(
-                                theme.palette.primary.neutral800,
-                                0.25
-                              )})`,
-                              borderRadius: "50%",
-                            },
-                          }}
-                        >
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              position: "absolute",
-                              bottom: "140px",
-                              left: "100%",
-                              transform: "translate(-50%, -50%)",
-                              whiteSpace: "nowrap",
-                              textTransform: "uppercase",
-                              color: lighten(
-                                theme.palette.primary.neutral900,
-                                0.5
-                              ),
-                              fontWeight: "600",
-                            }}
-                          >
-                            {phase.title}
-                          </Typography>
-                        </Box>
-                        <Typography
-                          variant="h3"
-                          sx={{
-                            color: "text.white",
-                            fontSize: { xs: "18px", md: "24px" },
-                            fontWeight: "500",
-                          }}
-                        >
-                          {phase.subtitle}
-                        </Typography>
-                      </Stack>
-                      <Stack>
-                        {phase.list.map((item, itemIndex) => (
-                          <div key={itemIndex}>
-                            <Typography
-                              variant="body1"
-                              sx={{
-                                color: "text.secondary",
-                                fontSize: { xs: "14px", md: "16px" },
-                                fontWeight: "400",
-                              }}
-                            >
-                              {item}
-                            </Typography>
-                          </div>
-                        ))}
-                      </Stack>
-                    </Stack>
-                  </Stack>
-                </div>
-              </Box>
-            ))}
-          </Slider>
+          <RoadmapSlider roadmapList={roadmapList} />
         </Box>
       </Stack>
     </Box>

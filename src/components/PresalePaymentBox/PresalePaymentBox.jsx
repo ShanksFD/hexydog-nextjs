@@ -34,7 +34,6 @@ import {
   bscTestnet,
 } from "@reown/appkit/networks";
 
-import { formatNumber, StyledButton } from "../../components/Utils/UIUtils";
 import { CustomInput } from "../../components/CustomInputs/CustomInput";
 
 import { memo as reactMemo } from "react";
@@ -53,6 +52,7 @@ import { useReadContract } from "wagmi";
 import { detectWalletType, logWalletError } from "../../utils/errorLogger";
 import { formatUnits } from "viem";
 import { theme } from "@/lib/theme";
+import { formatNumber, StyledButton } from "../Ui";
 
 const StyledSelect = styled(Select)(({ theme }) => ({
   "& .MuiSelect-select": {
@@ -93,7 +93,7 @@ const NetworkOption = reactMemo(({ icon, name }) => (
   </Stack>
 ));
 
-const SolanaAddressComponent = ({ t }) => {
+const SolanaAddressComponent = () => {
   const [copied, setCopied] = useState(false);
   const solanaAddress = "FdSNWvfhLpqnnX72nDEXuPJ2dNB236ZkGRn1NXNjDzaB";
 
@@ -154,7 +154,7 @@ const SolanaAddressComponent = ({ t }) => {
           fontSize: "12px",
         }}
       >
-        {t("HOME_PAGE.HERO.PRESALE.SOLANA_MANUAL_SEND")}
+        {dict.HOME_PAGE.HERO.PRESALE.SOLANA_MANUAL_SEND}
       </Typography>
     </Stack>
   );
@@ -210,9 +210,7 @@ const NETWORK_CONFIG = {
   },
 };
 
-const PresalePaymentBox = ({ onPurchaseSuccess }) => {
-  const { t } = useTranslation();
-
+const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
   const { data: isPaused = false } = useReadContract({
     address: TEST_CA,
     abi: TEST_CONTRACT_ABI,
@@ -409,7 +407,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
               lineHeight: "36px",
             }}
           >
-            {t("HOME_PAGE.HERO.PRESALE.TITLE")}
+            {dict.HOME_PAGE.HERO.PRESALE.TITLE}
           </Typography>
 
           <Stack
@@ -435,7 +433,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
                 zIndex: 1,
               }}
             ></Box>
-            {t("HOME_PAGE.HERO.PRESALE.STATUS")}
+            {dict.HOME_PAGE.HERO.PRESALE.STATUS}
           </Stack>
         </Stack>
 
@@ -509,7 +507,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
               textAlign: "center",
             }}
           >
-            {t("HOME_PAGE.HERO.PRESALE.YOUR_PURCHASED_TOKENS")}
+            {dict.HOME_PAGE.HERO.PRESALE.YOUR_PURCHASED_TOKENS}
           </Typography>
           <Typography
             variant="body1"
@@ -569,7 +567,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
                 fontWeight: "500",
               }}
             >
-              {t("HOME_PAGE.HERO.PRESALE.NETWORK")}
+              {dict.HOME_PAGE.HERO.PRESALE.NETWORK}
             </Typography>
 
             <StyledSelect
@@ -648,7 +646,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
                   fontWeight: "500",
                 }}
               >
-                {t("HOME_PAGE.HERO.PRESALE.PAYMENT_METHOD")}
+                {dict.HOME_PAGE.HERO.PRESALE.PAYMENT_METHOD}
               </Typography>
             )}
 
@@ -818,7 +816,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
         {paymentMethod === "card" || selectedNetwork === "sol" ? (
           <Stack sx={{ mt: 2, mb: 1 }}>
             <Typography variant="body1" sx={{ color: "common.white" }}>
-              {t("HOME_PAGE.HERO.PRESALE.CARD_TITLE")}
+              {dict.HOME_PAGE.HERO.PRESALE.CARD_TITLE}
             </Typography>
             <Stack
               direction={"row"}
@@ -872,9 +870,10 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
                     sx={{ mt: 2 }}
                   >
                     <CustomInput
-                      label={t("HOME_PAGE.HERO.PRESALE.AMOUNT", {
-                        currency: paymentMethod.toUpperCase(),
-                      })}
+                      label={dict.HOME_PAGE.HERO.PRESALE.AMOUNT.replace(
+                        "{{currency}}",
+                        paymentMethod.toUpperCase()
+                      )}
                       name="amount"
                       id="amount"
                       type="number"
@@ -912,7 +911,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
                     />
 
                     <CustomInput
-                      label={t("HOME_PAGE.HERO.PRESALE.RECEIVED_AMOUNT")}
+                      label={dict.HOME_PAGE.HERO.PRESALE.RECEIVED_AMOUNT}
                       name="receivedAmount"
                       id="receivedAmount"
                       type="text"
@@ -956,7 +955,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
               }}
               onClick={handleConnectWallet}
             >
-              {t("HOME_PAGE.HERO.PRESALE.CONNECT_WALLET")}
+              {dict.HOME_PAGE.HERO.PRESALE.CONNECT_WALLET}
             </StyledButton>
           </Stack>
         ) : selectedNetwork === "sol" ? (
@@ -968,7 +967,7 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
               py: 1,
             }}
           >
-            {t("HOME_PAGE.HERO.PRESALE.SOLANA_NOTE")}
+            {dict.HOME_PAGE.HERO.PRESALE.SOLANA_NOTE}
           </Typography>
         ) : (
           <StyledButton
@@ -978,12 +977,12 @@ const PresalePaymentBox = ({ onPurchaseSuccess }) => {
             onClick={handleBuyTokens}
           >
             {isApproving
-              ? t("HOME_PAGE.HERO.PRESALE.APPROVING")
+              ? dict.HOME_PAGE.HERO.PRESALE.APPROVING
               : isPurchasing
-              ? t("HOME_PAGE.HERO.PRESALE.PURCHASING")
+              ? dict.HOME_PAGE.HERO.PRESALE.PURCHASING
               : isProcessing
-              ? t("HOME_PAGE.HERO.PRESALE.PROCESSING")
-              : t("HOME_PAGE.HERO.PRESALE.BUY", { amount: tokensToBuy })}
+              ? dict.HOME_PAGE.HERO.PRESALE.PROCESSING
+              : dict.HOME_PAGE.HERO.PRESALE.BUY({ amount: tokensToBuy })}
           </StyledButton>
         )}
 

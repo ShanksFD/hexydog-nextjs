@@ -1,5 +1,3 @@
-"use client";
-
 import Marquee from "react-fast-marquee";
 import { darken, Stack } from "@mui/material";
 import Image from "next/image";

@@ -22,37 +22,37 @@ import {
   Divider,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import { useTranslation } from "react-i18next";
 import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
 import { IoMenu } from "react-icons/io5";
 import { BiChevronDown } from "react-icons/bi";
 
-import {
-  StyledButton,
-  StyledLink,
-  getTransitionStyle,
-  headerSocials,
-} from "../Utils/UIUtils";
 import { supportedLanguages } from "../../constants/langConstants";
 import { detectWalletType, logWalletError } from "../../utils/errorLogger";
 import { GB } from "country-flag-icons/react/3x2";
+import { StyledButton, StyledLink, headerSocials } from "../Ui";
+import { useRouter } from "next/navigation";
 
-export default function MainHeader() {
+export default function MainHeader({ dict, lang }) {
   const theme = useTheme();
   const isMobileOrTablet = useMediaQuery(theme.breakpoints.down("lg"));
-  const { i18n, t } = useTranslation();
-  const currentLanguage = i18n.language;
   const { isConnected } = useAppKitAccount();
   const { open } = useAppKit();
-  const linkTransition = getTransitionStyle(theme, ["color"]);
 
-  const [language, setLanguage] = useState(currentLanguage || "en-US");
+  const [language, setLanguage] = useState(lang || "en");
   const [menuPopoverEnchorEl, setMenuPopoverEnchorEl] = useState(null);
   const [langPopoverEnchorEl, setLangPopoverEnchorEl] = useState(null);
+
+  const router = useRouter();
 
   const handleLangPopoverOpen = (event) => {
     setLangPopoverEnchorEl(event.currentTarget);
   };
+
+  useEffect(() => {
+    if (lang && lang !== language) {
+      setLanguage(lang);
+    }
+  }, [lang]);
 
   const handleLangPopoverClose = () => {
     setLangPopoverEnchorEl(null);
@@ -92,13 +92,6 @@ export default function MainHeader() {
 
   const menuPopoverId = menuPopoverOpen ? "menu-popover" : undefined;
 
-  const textTransitionStyle = getTransitionStyle(theme, ["color"]);
-  const backgroundTransitionStyle = getTransitionStyle(theme, [
-    "background-color",
-  ]);
-
-  const transformTransitionStyle = getTransitionStyle(theme, ["transform"]);
-
   useEffect(() => {
     if (!isMobileOrTablet && menuPopoverEnchorEl) {
       setMenuPopoverEnchorEl(null);
@@ -106,29 +99,29 @@ export default function MainHeader() {
   }, [isMobileOrTablet, menuPopoverEnchorEl]);
 
   const links = [
-    { href: "#about", label: t("MAIN_HEADER.MENU.ABOUT"), isScroll: true },
+    { href: "#about", label: dict.MAIN_HEADER.MENU.ABOUT, isScroll: true },
     {
       href: "#how-to-buy",
-      label: t("MAIN_HEADER.MENU.HOW_TO_BUY"),
+      label: dict.MAIN_HEADER.MENU.HOW_TO_BUY,
       isScroll: true,
     },
     {
       href: "#tokenomics",
-      label: t("MAIN_HEADER.MENU.TOKENOMICS"),
+      label: dict.MAIN_HEADER.MENU.TOKENOMICS,
       isScroll: true,
     },
     {
-      href: "/blog",
-      label: t("MAIN_HEADER.MENU.BLOG"),
+      href: `/${language}/blog`,
+      label: dict.MAIN_HEADER.MENU.BLOG,
       isScroll: false,
     },
     {
       href: "/documents/HEXYWhitepaper.pdf",
-      label: t("MAIN_HEADER.MENU.WHITEPAPER"),
+      label: dict.MAIN_HEADER.MENU.WHITEPAPER,
       isScroll: false,
     },
-    { href: "#roadmap", label: t("MAIN_HEADER.MENU.ROADMAP"), isScroll: true },
-    { href: "#faq", label: t("MAIN_HEADER.MENU.FAQ"), isScroll: true },
+    { href: "#roadmap", label: dict.MAIN_HEADER.MENU.ROADMAP, isScroll: true },
+    { href: "#faq", label: dict.MAIN_HEADER.MENU.FAQ, isScroll: true },
   ];
 
   const handleLinkClick = (e, link) => {
@@ -167,11 +160,14 @@ export default function MainHeader() {
     threshold: 0,
   });
 
-  const handleLanguageChange = (language) => {
+  const handleLanguageChange = (newLanguage) => {
     setLangPopoverEnchorEl(null);
     setMenuPopoverEnchorEl(null);
-    setLanguage(language);
-    i18n.changeLanguage(language);
+    setLanguage(newLanguage);
+
+    const currentPath = window.location.pathname;
+    const pathWithoutLang = currentPath.replace(/^\/[a-z]{2}/, "");
+    router.push(`/${newLanguage}${pathWithoutLang}`);
   };
 
   return (
@@ -258,7 +254,6 @@ export default function MainHeader() {
                         transform: "translateY(-2px)",
                         color: "text.white",
                       },
-                      ...transformTransitionStyle,
                     }}
                   >
                     {link.label}
@@ -284,8 +279,6 @@ export default function MainHeader() {
                         transform: "translateY(-2px)",
                         color: "primary.neutral400",
                       },
-                      ...linkTransition,
-                      ...transformTransitionStyle,
                     }}
                   >
                     {link.logo}
@@ -317,7 +310,6 @@ export default function MainHeader() {
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  ...textTransitionStyle,
                 }}
                 aria-haspopup="true"
                 aria-owns={langPopoverId}
@@ -382,7 +374,7 @@ export default function MainHeader() {
                     },
                   }}
                 >
-                  {t("MAIN_HEADER.BUTTON")}
+                  {dict.MAIN_HEADER.BUTTON}
                 </StyledButton>
               )}
             </Stack>
@@ -439,11 +431,11 @@ export default function MainHeader() {
                           backdropFilter: "blur(10px)",
                           cursor: "pointer",
                         },
-                        ...backgroundTransitionStyle,
                       }}
                       onClick={() => handleLanguageChange(language.code)}
                     >
                       <Typography
+                        component="span"
                         sx={{
                           fontWeight: "400",
                           fontSize: "15px",
@@ -453,7 +445,10 @@ export default function MainHeader() {
                           gap: "8px",
                         }}
                       >
-                        <Box sx={{ width: "20px", height: "15px" }}>
+                        <Box
+                          component="span"
+                          sx={{ width: "20px", height: "15px" }}
+                        >
                           {React.createElement(language.flag)}
                         </Box>
                         {language.label}
@@ -490,7 +485,6 @@ export default function MainHeader() {
                   display: "flex",
                   alignItems: "center",
                   gap: "4px",
-                  ...textTransitionStyle,
                 }}
                 aria-haspopup="true"
                 aria-owns={langPopoverId}
@@ -591,7 +585,6 @@ export default function MainHeader() {
                               bgcolor: "primary.neutral900",
                               cursor: "pointer",
                             },
-                            ...backgroundTransitionStyle,
                           }}
                         >
                           <StyledLink
@@ -646,7 +639,7 @@ export default function MainHeader() {
                             fontSize: "16px",
                           }}
                         >
-                          {t("MAIN_HEADER.BUTTON")}
+                          {dict.MAIN_HEADER.BUTTON}
                         </StyledButton>
                       )}
                     </Stack>

@@ -1,18 +1,16 @@
-"use client";
-
 import { Box } from "@mui/material";
 import Head from "next/head";
 import Hero from "@/sections/Homepage/Hero";
-import About from "@/sections/Homepage/About";
+// import About from "@/sections/Homepage/About";
 import Roadmap from "@/sections/Homepage/Roadmap";
-import Features from "@/sections/Homepage/Features";
-import HowToBuy from "@/sections/Homepage/HowToBuy";
-import Faq from "@/sections/Homepage/Faq";
-import Mission from "@/sections/Homepage/Mission";
+// import Features from "@/sections/Homepage/Features";
+// import HowToBuy from "@/sections/Homepage/HowToBuy";
+// import Faq from "@/sections/Homepage/Faq";
+// import Mission from "@/sections/Homepage/Mission";
 import Tokenomics from "@/sections/Homepage/Tokenomics";
 import PartnershipsMarquee from "@/sections/Homepage/PartnershipsMarquee";
 
-export default function Home() {
+export default function Home({ dict }) {
   return (
     <>
       <Head>
@@ -41,15 +39,15 @@ export default function Home() {
         />
       </Head>
       <Box>
-        <Hero />
+        <Hero dict={dict} />
         <PartnershipsMarquee />
-        <About />
-        <Mission />
-        <HowToBuy />
-        <Features />
-        <Tokenomics />
-        <Roadmap />
-        <Faq />
+        {/* <About /> */}
+        {/* <Mission /> */}
+        {/* <HowToBuy /> */}
+        {/* <Features /> */}
+        <Tokenomics dict={dict} />
+        <Roadmap dict={dict} />
+        {/* <Faq /> */}
       </Box>
     </>
   );
