@@ -1,0 +1,384 @@
+{
+  "HOME_PAGE": {
+    "HERO": {
+      "TITLE": "Hexydog (HEXY): Evcil Hayvan Bakımını Blockchain ile Güçlendiriyor",
+      "DESCRIPTION": "Kripto inovasyonuyla evcil hayvan bakımını dönüştüren Hexydog (HEXY), küresel evcil hayvan sektörüne gerçek dünya faydası sunuyor. Evcil hayvan mağazalarında kripto ödemeleri mümkün kılarak ve hayvan refahı için şeffaf bağışları destekleyerek, 2025'in en iyi kripto ön satışı olarak öne çıkıyor.",
+      "BUTTON_AUDIT": "Denetleyen",
+      "PRESALE": {
+        "TITLE": "HEXYDOG Ön Satış",
+        "NEXT_PRICE": "Sonraki Fiyat Artışı",
+        "STATUS": "BAŞLADI",
+        "TIME": {
+          "D": "Gün",
+          "H": "Saat",
+          "M": "Dak",
+          "S": "Sn"
+        },
+        "RAISED": "Toplanan: {{amount}} USD",
+        "GOAL": "Hedef: {{amount}} USD",
+        "AMOUNT": "Ödeme Yap ({{currency}})",
+        "PURCHASE_SUCCESS": "Tebrikler! HEXY token'larını başarıyla satın aldınız.",
+        "RECEIVED_AMOUNT": "Alınacak (HEXY)",
+        "CARD_TITLE": "HEXY satın almak için bu seçenekleri kullanın",
+        "COPIED": "Kopyalandı",
+        "CONNECT_WALLET": "Cüzdanı Bağla",
+        "BUTTON": "HEXYDOG Şimdi Satın Al",
+        "BUY": "{{amount}} HEXY Satın Al",
+        "APPROVE": "Onayla",
+        "APPROVING": "Onaylanıyor...",
+        "PURCHASING": "Satın Alınıyor...",
+        "PROCESSING": "İşleniyor...",
+        "NETWORK": "Ağ",
+        "PAYMENT_METHOD": "Ödeme Yöntemi",
+        "SOLANA_MANUAL_SEND": "Yukarıdaki adrese SOL gönderin, sistemimiz mevcut kur üzerinden dönüşüm yaparak tutarınızı kaydedecektir.",
+        "SOLANA_NOTE": "HEXY token'larınız lansmanda talep edilebilir olacaktır.",
+        "YOUR_PURCHASED_TOKENS": "Satın aldığınız $HEXY"
+      }
+    },
+    "ABOUT": {
+      "TITLE": "HEXYDOG Hakkında",
+      "SUBTITLE": "Kripto ile Şefkatin Buluşması",
+      "PARAGRAPH": "Hexydog olarak, dijital varlıklar ve hayvan refahı arasında gerçek dünya bağlantısı kurarak kripto alanını yeniden tanımlıyoruz. Platformumuz, amaç odaklı tokenomikleri dünya çapında hayvan barınakları ve kurtarma organizasyonlarına doğrudan destekle birleştiriyor. Evcil hayvan mağazalarıyla yapılan iş birlikleri sayesinde, HEXY token'ları evcil hayvan ürünleri, hizmetleri ve aksesuarları için sorunsuz ödemelerde kullanılabiliyor. Bu, evcil hayvan endüstrisinin kalbine pratik bir fayda getiriyor. Hexydog ön satışına bugün katılın ve ihtiyaç sahibi hayvanlar için anlamlı bir etki yaratan harekete dahil olun."
+    },
+    "MISSION": {
+      "TITLE": "Misyonumuz",
+      "SUBTITLE": "Blockchain ile Hayvan Refahını Geliştirme",
+      "PARAGRAPH": "Hexydog, kripto para ve hayvan refahı arasındaki boşluğu kapatarak, pratik ve amaç odaklı çözümlerle kalıcı bir etki sunuyor.",
+      "MISSIONS": [
+        {
+          "TITLE": "Kriptoyu Evcil Hayvan Endüstrisiyle Entegre Etmek",
+          "DESCRIPTION": "Blockchain teknolojisini kullanarak küresel hayvan refahını destekleyen HEXY token'ları, iş ortaklığı yapılan evcil hayvan mağazalarında sorunsuz kripto ödemelerine olanak tanıyacak."
+        },
+        {
+          "TITLE": "Şeffaf Bağış",
+          "DESCRIPTION": "Hayvan barınakları ve kurtarma organizasyonları, blockchain doğrulamalı bağışlarla doğrudan destek alarak hesap verebilirlik ve güven sağlıyor."
+        },
+        {
+          "TITLE": "Şefkati Ödüllendirmek",
+          "DESCRIPTION": "HEXY, sahiplerine değer katarken aynı zamanda gerçek dünyadaki hayvan refahı girişimlerini aktif olarak destekliyor."
+        }
+      ]
+    },
+    "HOW_TO_BUY": {
+      "TITLE": "HEXY Token'ları Nasıl Satın Alınır?",
+      "SUBTITLE": "Misyonumuza Katılmak İçin Basit Adımlar",
+      "PARAGRAPH": "HEXY token'larını satın almak ve hayvan refahı girişimimizin bir parçası olmak için bu kolay adımları izleyin.",
+      "FEATURES": [
+        {
+          "TITLE": "Cüzdanınızı Bağlayın",
+          "DESCRIPTION": "Ön satış platformumuza katılmak için Ethereum cüzdanınızı bağlayın."
+        },
+        {
+          "TITLE": "Ağ Seçin",
+          "DESCRIPTION": "Satın alma işleminiz için kullanmak istediğiniz ağı seçin."
+        },
+        {
+          "TITLE": "HEXY Token'larını Satın Alın",
+          "DESCRIPTION": "Ön satış sırasında HEXY token'larını satın almak için ETH, USDT, USDC veya BNB kullanın."
+        },
+        {
+          "TITLE": "HEXY Token'larınızı Talep Edin",
+          "DESCRIPTION": "Ön satış tamamlandığında HEXY token'larınızı talep edin."
+        }
+      ]
+    },
+    "ROADMAP": {
+      "TITLE": "Yol Haritamız",
+      "TEXT": "HEXYDOG'un hayvan refahı üzerinde kalıcı bir etki yaratma yolculuğu.",
+      "PHASES": [
+        {
+          "TITLE": "1. Aşama",
+          "SUBTITLE": "Temel",
+          "LIST": [
+            "Üçüncü taraf denetimli HEXY akıllı kontratını devreye alma",
+            "KYC doğrulamasını tamamlama ve güvenlik protokollerini uygulama",
+            "Resmi web sitesi ve teknik dokümanı yayınlama",
+            "Sosyal platformlarda topluluk oluşturma",
+            "İlk pazarlama ve farkındalık çalışmalarını başlatma"
+          ]
+        },
+        {
+          "TITLE": "2. Aşama",
+          "SUBTITLE": "Büyüme ve Şeffaflık",
+          "LIST": [
+            "Topluluğu genişletme ve sosyal büyüme girişimlerini başlatma",
+            "Küresel Hexy Elçi Programını başlatma",
+            "Evcil hayvanla ilgili işletmeler ve STK'larla stratejik ortaklıklar kurma",
+            "1. Kademe borsa listeleme taahhütlerini alma",
+            "Staking mekaniği ve bağış sistemi yapısını sonuçlandırma"
+          ]
+        },
+        {
+          "TITLE": "3. Aşama",
+          "SUBTITLE": "Fayda ve Lansman",
+          "LIST": [
+            "HEXY token'ını merkeziyetsiz borsalarda listeleme",
+            "Merkezi borsa (CEX) listeleri",
+            "Doğrulanmış barınaklara blokzincir üzerinden bağışları etkinleştirme",
+            "Evcil hayvan sektörü ve hayvan refahı ortaklıklarını genişletme",
+            "Evcil hayvan mağazalarında kripto ödemeleri için HexyPay'ı başlatma",
+            "DAO tabanlı topluluk yönetimini tanıtma"
+          ]
+        },
+        {
+          "TITLE": "4. Aşama",
+          "SUBTITLE": "Genişleme",
+          "LIST": [
+            "HexyPay'ı uluslararası evcil hayvan perakendecilerine yayma",
+            "Küresel hayvan refahı organizasyonlarıyla ortaklıkları büyütme",
+            "Otomatik bağış ve ödeme takip özelliklerini başlatma",
+            "Stratejik iş birlikleriyle marka varlığını güçlendirme",
+            "Topluluk liderliğini ve uzun vadeli yönetimi güçlendirme"
+          ]
+        }
+      ]
+    },
+    "FEATURES": {
+      "TITLE": "HEXYDOG'u Keşfedin",
+      "SUBTITLE": "Benzersiz Özellikler ve Avantajlar",
+      "FEATURES": [
+        {
+          "TITLE": "Çoklu Zincir Uyumluluğu",
+          "DESCRIPTION": "HEXYDOG, dünya çapında hızlı, düşük maliyetli ve erişilebilir işlemlere olanak tanıyan birden fazla blokzincirde çalışır."
+        },
+        {
+          "TITLE": "Gerçek Fayda Sunan Token",
+          "DESCRIPTION": "HEXYDOG, yalnızca hype değil, kullanıcıların alışveriş yapmasına, bağışta bulunmasına ve ödüller kazanmasına olanak tanır."
+        },
+        {
+          "TITLE": "Yenilikçi Staking Sistemi",
+          "DESCRIPTION": "Dinamik ve sürdürülebilir bir staking modeliyle pasif ödüller kazanmak için HEXYDOG stake edin."
+        },
+        {
+          "TITLE": "Küresel Elçi Ağı",
+          "DESCRIPTION": "Tutkulu destekçiler, yerel erişim ve topluluk odaklı pazarlama çabalarıyla HEXYDOG'un benimsenmesini teşvik eder."
+        },
+        {
+          "TITLE": "Hexy Kurtarma Fonu",
+          "DESCRIPTION": "Her işlem, küresel çapta evcil hayvan kurtarma, barınaklar ve hayvan refahı girişimlerine katkıda bulunur."
+        },
+        {
+          "TITLE": "Şeffaf Operasyonlar",
+          "DESCRIPTION": "HEXYDOG, denetlenebilir akıllı kontratlar, açık yönetim ve net finansal raporlarla güven sağlar."
+        }
+      ]
+    },
+    "TOKENOMICS": {
+      "TITLE": "Tokenomik",
+      "SUBTITLE": "HEXY Token Dağılımı",
+      "TOTAL_SUPPLY": "Toplam Arz",
+      "PRESALE": "Ön Satış",
+      "STAKING": "Staking Ödülleri",
+      "MARKETING": "Pazarlama & Ortaklıklar",
+      "LIQUIDITY": "Likidite Havuzu",
+      "TEAM": "Ekip & Geliştirme",
+      "COMMUNITY": "Topluluk Ödülleri",
+      "CHARITY": "Hayırseverlik & Benimseme",
+      "TABLE": {
+        "FUND": "Fon",
+        "ALLOCATION": "Dağılım",
+        "TOKEN": "Token (HEXY)"
+      }
+    },
+    "FAQ": {
+      "TITLE": "Sıkça Sorulan Sorular"
+    },
+    "LIVE_CHAINS": {
+      "TITLE": "HEXY ÇOKLU ZİNCİRE AÇILIYOR",
+      "DESCRIPTION": "<hexy>HEXY</hexy>'i bu zincirlerden herhangi birinde satın alın ve talep edin",
+      "LIVE": "Canlı"
+    }
+  },
+  "MAIN_HEADER": {
+    "MENU": {
+      "ABOUT": "Hakkında",
+      "WHITEPAPER": "Teknik Doküman",
+      "TOKENOMICS": "Tokenomik",
+      "ROADMAP": "Yol Haritası",
+      "HOW_TO_BUY": "Nasıl Satın Alınır?",
+      "FAQ": "SSS",
+      "BLOG": "Blog"
+    },
+    "BUTTON": "Cüzdanı Bağla"
+  },
+  "MAIN_FOOTER": {
+    "COPYRIGHT": "2025 HEXY Token. Tüm hakları saklıdır.",
+    "DISCLAIMER_TITLE": "Feragatname",
+    "DISCLAIMER": "Bu web sitesindeki içerik, bilgi sağlamak ve yatırım kararlarınızı desteklemek amacıyla hazırlanmıştır. Kendi araştırmanızı yapmanızı ve profesyonel tavsiye almanızı öneririz. Projemizin potansiyeline güveniyor olsak da, kripto para yatırımları risk içerir ve dikkatli bir şekilde ele alınmalıdır.",
+    "SOCIAL_LINKS": "Sosyal Medya Bağlantıları"
+  },
+  "NOT_FOUND": {
+    "TITLE": "404",
+    "SUBTITLE": "Sayfa Bulunamadı",
+    "LINK": "Bunun için üzgünüz. <Link>Anasayfamıza</Link> bir göz atmak ister misiniz?"
+  },
+  "FAQ_SUMMARY": [
+    {
+      "QUESTION": "HEXY token'ı nedir?",
+      "ANSWER": "HEXY, HEXYDOG ekosisteminin yerel token'ıdır ve kripto para inovasyonunu hayvan refahı desteğiyle birleştirir. Topluluk yönetişimine katılım, staking ödülleri ve dünya çapında hayvan barınaklarına doğrudan destek sağlar."
+    },
+    {
+      "QUESTION": "HEXY token'larını nasıl satın alabilirim?",
+      "ANSWER": "Ön satışa katılmak için Ethereum cüzdanınızı platformumuza bağlayın ve HEXY token'larını satın almak için ETH kullanın. Minimum satın alma tutarı ön satış döneminde belirtilecektir."
+    },
+    {
+      "QUESTION": "Hexy Kurtarma Fonu nasıl çalışır?",
+      "ANSWER": "Hexy Kurtarma Fonu, ön satış fonlarının %5'ini hayvan barınakları ve kurtarma organizasyonlarını desteklemek için ayırır. Token sahipleri, alıcı organizasyonlar üzerinde oy kullanabilir ve tüm bağışlar tam şeffaflık için akıllı kontratlarla doğrulanır."
+    },
+    {
+      "QUESTION": "HEXY stake etmenin avantajları nelerdir?",
+      "ANSWER": "HEXY token'larını stake etmek, ek token ödülleri, özel NFT'ler ve evcil hayvan endüstrisi ortaklarımızdan potansiyel indirimler sunarken aynı zamanda hayvan refahı girişimlerimizi destekler."
+    },
+    {
+      "QUESTION": "Hexy Elçisi nasıl olabilirim?",
+      "ANSWER": "Hexy Elçi Programı, yerel barınak desteğini koordine etmek isteyen topluluk üyelerine açıktır. Başvurular web sitemiz üzerinden yapılabilir ve seçilen elçiler bölgesel girişimleri yönetmeye yardımcı olur."
+    },
+    {
+      "QUESTION": "Ön satış HEXY token'larımı ne zaman alacağım?",
+      "ANSWER": "Ön satış satın alma işleminizi tamamladıktan sonra, aynı cüzdanı kullanarak $HEXY token'larınızı lansmanda talep edebilirsiniz. Talep ve listeleme tarihleri sosyal medya kanallarımızda paylaşılacaktır."
+    },
+    {
+      "QUESTION": "Ön satışın güvenli olduğunu nasıl bilebilirim?",
+      "ANSWER": "HEXYDOG, ekip KYC doğrulaması ve akıllı kontrat denetimleri de dahil olmak üzere sağlam bir güvenlik sistemiyle maksimum güvenliği sağlar. Şeffaflık ve güven önceliğimizdir, bu da ön satış yatırımınızı güvenli ve güvenilir kılar."
+    },
+    {
+      "QUESTION": "Satın aldığım HEXY token'larımı nasıl görebilirim?",
+      "ANSWER": "Web sitemizdeki ödeme widget'ına cüzdanınızı bağlamanız yeterlidir, satın aldığınız $HEXY token'ları anında görüntülenecektir. Sorunsuz erişim için doğru cüzdan ve ağı kullandığınızdan emin olun."
+    },
+    {
+      "QUESTION": "Kartla nasıl satın alabilirim?",
+      "ANSWER": "Kartınızı kullanarak kripto satın almak için web sitemizdeki MoonPay veya ChangeNow seçeneklerine tıklayın. Ardından cüzdanınızı bağlayın ve satın aldığınız kriptoyu $HEXY token'larını satın almak için kullanın."
+    }
+  ],
+  "LOGIN": {
+    "TITLE": "Giriş Yap",
+    "PLEASE_LOGIN": "Devam etmek için lütfen hesabınıza giriş yapın",
+    "EMAIL": "E-posta",
+    "EMAIL_PLACEHOLDER": "ornek@mail.com",
+    "PASSWORD": "Şifre",
+    "LOGIN_BUTTON": "Giriş Yap"
+  },
+  "VALIDATION": {
+    "EMAIL_INVALID": "Lütfen geçerli bir e-posta adresi girin",
+    "EMAIL_REQUIRED": "E-posta gereklidir",
+    "EMAIL_MAX_LENGTH": "E-posta en fazla 255 karakter olmalıdır",
+    "PASSWORD_REQUIRED": "Şifre gereklidir"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Hoş geldiniz, {{name}}",
+    "TOTAL_BLOGS": "Toplam Blog Yazısı",
+    "PUBLISHED_BLOGS": "Yayınlanan Yazılar",
+    "DRAFT_BLOGS": "Taslak Yazılar",
+    "RECENT_BLOGS": "Son Blog Yazıları",
+    "NO_BLOGS_YET": "Henüz blog yazısı oluşturulmadı",
+    "QUICK_ACTIONS": "Hızlı İşlemler",
+    "MANAGE_BLOGS": "Tüm Blogları Yönet",
+    "MENU": {
+      "DASHBOARD": "Kontrol Paneli",
+      "BLOGS": "Blog Yönetimi",
+      "PROFILE": "Profil",
+      "SETTINGS": "Ayarlar",
+      "LOGOUT": "Çıkış Yap"
+    },
+    "BLOG": {
+      "TITLE": "Blog Yönetimi",
+      "CREATE_NEW": "Yeni Blog Oluştur",
+      "CREATE_BLOG": "Blog Yazısı Oluştur",
+      "EDIT_BLOG": "Blog Yazısını Düzenle",
+      "TABLE": {
+        "TITLE": "Başlık",
+        "STATUS": "Durum",
+        "CREATED_AT": "Oluşturulma Tarihi",
+        "UPDATED_AT": "Güncellenme Tarihi",
+        "TAGS": "Etiketler",
+        "ACTIONS": "İşlemler"
+      },
+      "PUBLISHED": "Yayınlandı",
+      "UNPUBLISHED": "Yayından Kaldırıldı",
+      "DRAFT": "Taslak",
+      "NO_POSTS": "Blog yazısı bulunamadı",
+      "NO_TAGS": "Etiket yok",
+      "DELETE_CONFIRM_TITLE": "Blog Yazısını Sil",
+      "DELETE_CONFIRM_MESSAGE": "'{{title}}' başlıklı yazıyı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
+      "UPDATED_SUCCESS": "Blog yazısı başarıyla güncellendi",
+      "CREATED_SUCCESS": "Blog yazısı başarıyla oluşturuldu",
+      "NOT_FOUND": "Blog yazısı bulunamadı",
+      "SEO_PREVIEW": "SEO Önizleme",
+      "PUBLISH": "Yayınla",
+      "UNPUBLISH": "Yayından Kaldır",
+      "EDIT": "Düzenle",
+      "DELETE": "Sil",
+      "VIEW": "Görüntüle",
+      "CLONE": "Klonla",
+      "FORM": {
+        "TITLE": "Başlık",
+        "SLUG": "URL Kısa Adı",
+        "SLUG_HELP": "Başlığın URL uyumlu versiyonu",
+        "CONTENT": "İçerik",
+        "EXCERPT": "Özet",
+        "EXCERPT_HELP": "Blog yazısının kısa bir özeti",
+        "SEO_SETTINGS": "SEO Ayarları",
+        "SEO_TITLE": "SEO Başlığı",
+        "SEO_DESCRIPTION": "Meta Açıklaması",
+        "SEO_KEYWORDS": "Anahtar Kelimeler",
+        "SEO_KEYWORDS_HELP": "Virgülle ayrılmış anahtar kelimeler",
+        "CHARACTERS": "karakter",
+        "PUBLISH_SETTINGS": "Yayınlama Ayarları",
+        "FEATURED_IMAGE": "Öne Çıkan Görsel",
+        "IMAGE_URL": "Görsel URL'si",
+        "UPLOAD_IMAGE": "Görsel Yükle",
+        "QUILL_IMAGE_HELP": "Bir görseli sürükleyip bırakın veya yüklemek için tıklayın",
+        "IMAGE_UPLOADED_SUCCESS": "Görsel başarıyla yüklendi",
+        "FEATURED_IMAGE_UPLOADED": "Öne çıkan görsel yüklendi",
+        "TAGS": "Etiketler",
+        "ADD_TAG": "Etiket Ekle"
+      }
+    }
+  },
+  "COMMON": {
+    "SAVE": "Kaydet",
+    "CANCEL": "İptal",
+    "BACK": "Geri",
+    "DELETE": "Sil",
+    "EDIT": "Düzenle",
+    "BACK_TO_BLOGS": "Bloglara Geri Dön",
+    "ERROR_OCCURRED": "Bir hata oluştu",
+    "ADD": "Ekle",
+    "LOAD_MORE": "Daha Fazla Yükle",
+    "SHARE": "Paylaş"
+  },
+  "BLOG": {
+    "TITLE": "HEXYDOG Blog - Kripto & Hayvan Refahı Güncellemeleri",
+    "DESCRIPTION": "HEXYDOG Blog'una hoş geldiniz. Çoklu zincir kripto ön satışımız ve hayvan refahı hakkında güncellemeler, bilgiler ve haberler için ana kaynağınız.",
+    "SHARE_THIS_ARTICLE": "Bu yazıyı beğendiniz mi? Arkadaşlarınızla paylaşın!",
+    "SHARE_ON_FACEBOOK": "Facebook'ta Paylaş",
+    "SHARE_ON_TWITTER": "Twitter'da Paylaş",
+    "RELATED_POSTS": "İlgili Yazılar"
+  },
+  "STAKE": {
+    "COMING_SOON": "Heyecan verici güncellemeler için bizi takip edin!"
+  },
+  "NAVIGATION": {
+    "HOME": "Ana Sayfa",
+    "BLOG": "Blog"
+  },
+  "HELMET": {
+    "HOME_PAGE": {
+      "TITLE": "Hexydog - Evcil Hayvan Bakımı ve Blockchain Kullanımı İçin Kripto Ön Satışı",
+      "DESCRIPTION": "Hexydog (HEXY), evcil hayvan bakım sektörünü dönüştürmek için blokzincir çözümleri sunar. 2025’in en iyi kripto ön satışına katılın ve hayvan refahında yeniliğe yön verin."
+    },
+    "NOT_FOUND": {
+      "TITLE": "404 - Sayfa Bulunamadı",
+      "DESCRIPTION": "Bunun için üzgünüz. Anasayfamıza bir göz atmak ister misiniz?"
+    },
+    "BLOG": {
+      "TITLE": "HEXYDOG Blog - Kripto & Hayvan Refahı Güncellemeleri",
+      "DESCRIPTION": "HEXYDOG Blog'una hoş geldiniz - kripto ön satış güncellemeleri ve hayvan refahı haberleri için ana kaynağınız. Bilgilenin ve topluluğumuza katılın!"
+    },
+    "STAKE": {
+      "TITLE": "HEXYDOG - Staking Ödülleri",
+      "DESCRIPTION": "Pasif ödüller kazanmak ve hayvan refahı girişimlerini desteklemek için HEXY token'larını stake edin",
+      "COMING_SOON": "Heyecan verici güncellemeler için bizi takip edin!"
+    }
+  }
+}

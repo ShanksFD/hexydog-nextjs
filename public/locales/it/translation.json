@@ -1,0 +1,384 @@
+{
+  "HOME_PAGE": {
+    "HERO": {
+      "TITLE": "Hexydog (HEXY): Potenziamento della Cura degli Animali Attraverso la Tecnologia Blockchain",
+      "DESCRIPTION": "Trasformando la cura degli animali domestici con l'innovazione cripto, Hexydog (HEXY) porta utilità reale al settore globale degli animali domestici. Consentendo pagamenti in criptovaluta nei negozi di animali e supportando donazioni trasparenti per il benessere animale, si distingue come la migliore prevendita cripto del 2025 con uno scopo chiaro e un impatto duraturo.",
+      "BUTTON_AUDIT": "Verificato Da",
+      "PRESALE": {
+        "TITLE": "Prevendita HEXYDOG",
+        "NEXT_PRICE": "Prossimo Aumento di Prezzo",
+        "STATUS": "ATTIVA",
+        "TIME": {
+          "D": "Giorni",
+          "H": "Ore",
+          "M": "Min",
+          "S": "Sec"
+        },
+        "RAISED": "Raccolti: {{amount}} USD",
+        "GOAL": "Obiettivo: {{amount}} USD",
+        "AMOUNT": "Paga con ({{currency}})",
+        "PURCHASE_SUCCESS": "Congratulazioni! Hai acquistato con successo i token HEXY.",
+        "RECEIVED_AMOUNT": "Ricevi (HEXY)",
+        "CARD_TITLE": "Usa queste opzioni per acquistare HEXY",
+        "COPIED": "Copiato",
+        "CONNECT_WALLET": "Connetti Wallet",
+        "BUTTON": "Acquista HEXYDOG Ora",
+        "BUY": "Acquista {{amount}} HEXY",
+        "APPROVE": "Approva",
+        "APPROVING": "Approvando...",
+        "PURCHASING": "Acquistando...",
+        "PROCESSING": "Elaborando...",
+        "NETWORK": "Rete",
+        "PAYMENT_METHOD": "Metodo di Pagamento",
+        "SOLANA_MANUAL_SEND": "Invia SOL all'indirizzo sopra, e il nostro sistema lo convertirà al tasso di cambio attuale, registrando il tuo importo.",
+        "SOLANA_NOTE": "I tuoi token HEXY saranno disponibili per il riscatto al lancio.",
+        "YOUR_PURCHASED_TOKENS": "I tuoi token $HEXY acquistati"
+      }
+    },
+    "ABOUT": {
+      "TITLE": "Informazioni su HEXYDOG",
+      "SUBTITLE": "Dove la Crypto Incontra la Compassione",
+      "PARAGRAPH": "In Hexydog, stiamo ridefinendo lo spazio crypto costruendo una connessione reale tra asset digitali e benessere animale. La nostra piattaforma abbina tokenomics mirate con supporto diretto per rifugi di animali e organizzazioni di salvataggio in tutto il mondo. Attraverso partnership con negozi di animali, i token HEXY possono essere utilizzati per acquisti senza problemi di prodotti, servizi e accessori per animali. Questo porta utilità pratica al cuore dell'industria degli animali domestici. Unisciti alla prevendita di Hexydog oggi e diventa parte di un movimento che offre un impatto significativo per gli animali bisognosi."
+    },
+    "MISSION": {
+      "TITLE": "La Nostra Missione",
+      "SUBTITLE": "Promuovere il Benessere Animale Attraverso la Blockchain",
+      "PARAGRAPH": "Hexydog colma il divario tra criptovaluta e benessere animale, offrendo un impatto duraturo attraverso soluzioni pratiche e mirate.",
+      "MISSIONS": [
+        {
+          "TITLE": "Integrare la Crypto con l'Industria degli Animali",
+          "DESCRIPTION": "Sfruttando la tecnologia blockchain per sostenere il benessere animale globale, i token HEXY permetteranno pagamenti crypto semplici nei negozi di animali partner."
+        },
+        {
+          "TITLE": "Donazioni Trasparenti",
+          "DESCRIPTION": "I rifugi per animali e le organizzazioni di salvataggio ricevono supporto diretto attraverso donazioni verificate dalla blockchain, garantendo responsabilità e fiducia."
+        },
+        {
+          "TITLE": "Premiare la Compassione",
+          "DESCRIPTION": "HEXY crea valore per i possessori mentre supporta attivamente iniziative di benessere animale nel mondo reale."
+        }
+      ]
+    },
+    "HOW_TO_BUY": {
+      "TITLE": "Come Acquistare Token HEXY",
+      "SUBTITLE": "Passi Semplici per Unirti alla Nostra Missione",
+      "PARAGRAPH": "Segui questi semplici passi per acquistare token HEXY e diventare parte della nostra iniziativa per il benessere animale.",
+      "FEATURES": [
+        {
+          "TITLE": "Connetti il tuo Wallet",
+          "DESCRIPTION": "Connetti il tuo wallet Ethereum alla nostra piattaforma di prevendita."
+        },
+        {
+          "TITLE": "Seleziona la Rete",
+          "DESCRIPTION": "Scegli la rete che vuoi utilizzare per il tuo acquisto."
+        },
+        {
+          "TITLE": "Acquista Token HEXY",
+          "DESCRIPTION": "Usa ETH, USDT, USDC o BNB per acquistare token HEXY durante la prevendita."
+        },
+        {
+          "TITLE": "Riscatta i Tuoi Token HEXY",
+          "DESCRIPTION": "Riscatta i tuoi token HEXY una volta conclusa la prevendita."
+        }
+      ]
+    },
+    "ROADMAP": {
+      "TITLE": "La Nostra Roadmap",
+      "TEXT": "Il viaggio di HEXYDOG per creare un impatto duraturo sul benessere animale.",
+      "PHASES": [
+        {
+          "TITLE": "Fase 1",
+          "SUBTITLE": "Fondazione",
+          "LIST": [
+            "Implementare lo smart contract HEXY con audit di terze parti",
+            "Completare la verifica KYC e implementare protocolli di sicurezza",
+            "Lanciare sito web ufficiale e whitepaper",
+            "Costruzione della comunità sulle piattaforme social",
+            "Avviare le iniziali campagne di marketing e sensibilizzazione"
+          ]
+        },
+        {
+          "TITLE": "Fase 2",
+          "SUBTITLE": "Crescita e Trasparenza",
+          "LIST": [
+            "Espandere le iniziative di crescita comunitaria e sociale",
+            "Lanciare il Programma globale Ambasciatori Hexy",
+            "Costruire partnership strategiche con aziende legate agli animali e ONG",
+            "Assicurare impegni di quotazione su exchange di Tier 1",
+            "Finalizzare le meccaniche di staking e la struttura del sistema di donazione"
+          ]
+        },
+        {
+          "TITLE": "Fase 3",
+          "SUBTITLE": "Utilità e Lancio",
+          "LIST": [
+            "Lanciare il token HEXY su exchange decentralizzati",
+            "Quotazioni su exchange centralizzati (CEX)",
+            "Abilitare donazioni on-chain a rifugi verificati",
+            "Espandere le partnership nel settore degli animali e del benessere animale",
+            "Lanciare HexyPay per pagamenti crypto nei negozi di animali",
+            "Introdurre la governance comunitaria basata su DAO"
+          ]
+        },
+        {
+          "TITLE": "Fase 4",
+          "SUBTITLE": "Espansione",
+          "LIST": [
+            "Scalare HexyPay in negozi internazionali di animali",
+            "Aumentare le partnership con organizzazioni globali per il benessere animale",
+            "Lanciare funzionalità automatizzate di donazione e tracciamento dei pagamenti",
+            "Rafforzare la presenza del brand attraverso collaborazioni strategiche",
+            "Consolidare la leadership comunitaria e la governance a lungo termine"
+          ]
+        }
+      ]
+    },
+    "FEATURES": {
+      "TITLE": "Scopri HEXYDOG",
+      "SUBTITLE": "Caratteristiche e Benefici Unici",
+      "FEATURES": [
+        {
+          "TITLE": "Compatibilità Multi-Chain",
+          "DESCRIPTION": "HEXYDOG opera su multiple blockchain, consentendo transazioni veloci, a basso costo e accessibili in tutto il mondo."
+        },
+        {
+          "TITLE": "Potere del Token con Utilità Reale",
+          "DESCRIPTION": "Più che hype, HEXYDOG permette agli utenti di acquistare, donare e guadagnare ricompense."
+        },
+        {
+          "TITLE": "Sistema di Staking Innovativo",
+          "DESCRIPTION": "Fai staking di HEXYDOG per guadagnare ricompense passive attraverso un modello di staking dinamico e sostenibile."
+        },
+        {
+          "TITLE": "Rete Globale di Ambasciatori",
+          "DESCRIPTION": "Sostenitori appassionati promuovono l'adozione di HEXYDOG attraverso attività locali e sforzi di marketing guidati dalla comunità."
+        },
+        {
+          "TITLE": "Fondo di Salvataggio Hexy",
+          "DESCRIPTION": "Ogni transazione contribuisce a salvataggi di animali, rifugi e iniziative per il benessere animale a livello globale."
+        },
+        {
+          "TITLE": "Operazioni Trasparenti",
+          "DESCRIPTION": "HEXYDOG garantisce fiducia con smart contract verificabili, governance aperta e reportistica finanziaria chiara."
+        }
+      ]
+    },
+    "TOKENOMICS": {
+      "TITLE": "Tokenomics",
+      "SUBTITLE": "Distribuzione dei Token HEXY",
+      "TOTAL_SUPPLY": "Offerta Totale",
+      "PRESALE": "Prevendita",
+      "STAKING": "Ricompense Staking",
+      "MARKETING": "Marketing e Partnership",
+      "LIQUIDITY": "Pool di Liquidità",
+      "TEAM": "Team e Sviluppo",
+      "COMMUNITY": "Ricompense per la Comunità",
+      "CHARITY": "Beneficenza e Adozione",
+      "TABLE": {
+        "FUND": "Fondo",
+        "ALLOCATION": "Allocazione",
+        "TOKEN": "Token (HEXY)"
+      }
+    },
+    "FAQ": {
+      "TITLE": "Domande Frequenti"
+    },
+    "LIVE_CHAINS": {
+      "TITLE": "HEXY DIVENTA MULTICHAIN",
+      "DESCRIPTION": "Acquista e riscatta <hexy>HEXY</hexy> su una di queste catene",
+      "LIVE": "Attivo"
+    }
+  },
+  "MAIN_HEADER": {
+    "MENU": {
+      "ABOUT": "Chi Siamo",
+      "WHITEPAPER": "Whitepaper",
+      "TOKENOMICS": "Tokenomics",
+      "ROADMAP": "Roadmap",
+      "HOW_TO_BUY": "Come Acquistare",
+      "FAQ": "FAQ",
+      "BLOG": "Blog"
+    },
+    "BUTTON": "Connetti Wallet"
+  },
+  "MAIN_FOOTER": {
+    "COPYRIGHT": "2025 HEXY Token. Tutti i diritti riservati.",
+    "DISCLAIMER_TITLE": "Disclaimer",
+    "DISCLAIMER": "Il contenuto di questo sito web è progettato per fornire approfondimenti e supportare le tue decisioni di investimento. Ti incoraggiamo a condurre la tua ricerca personale e a cercare consulenza professionale. Sebbene siamo fiduciosi nel potenziale del nostro progetto, gli investimenti in criptovalute comportano rischi e dovrebbero essere affrontati con attenta considerazione.",
+    "SOCIAL_LINKS": "Link Social"
+  },
+  "NOT_FOUND": {
+    "TITLE": "404",
+    "SUBTITLE": "Pagina Non<Br/>Trovata",
+    "LINK": "Ci dispiace. Vuoi dare<Br/>un'occhiata alla nostra <Link>Homepage</Link>?"
+  },
+  "FAQ_SUMMARY": [
+    {
+      "QUESTION": "Cos'è il token HEXY?",
+      "ANSWER": "HEXY è il token nativo dell'ecosistema HEXYDOG, che combina l'innovazione delle criptovalute con il supporto al benessere animale. Consente la partecipazione alla governance della nostra comunità, ricompense di staking e supporto diretto ai rifugi per animali in tutto il mondo."
+    },
+    {
+      "QUESTION": "Come posso acquistare i token HEXY?",
+      "ANSWER": "Per partecipare alla prevendita, connetti il tuo wallet Ethereum alla nostra piattaforma e usa ETH per acquistare token HEXY. L'importo minimo di acquisto sarà specificato durante il periodo di prevendita."
+    },
+    {
+      "QUESTION": "Come funziona il Fondo di Salvataggio Hexy?",
+      "ANSWER": "Il Fondo di Salvataggio Hexy alloca il 5% dei fondi della prevendita per supportare rifugi per animali e organizzazioni di salvataggio. I possessori di token possono votare sulle organizzazioni beneficiarie, e tutte le donazioni sono verificate tramite smart contract per una completa trasparenza."
+    },
+    {
+      "QUESTION": "Quali sono i vantaggi dello staking di HEXY?",
+      "ANSWER": "Lo staking dei token HEXY fornisce ricompense in token aggiuntivi, NFT esclusivi e potenziali sconti con i nostri partner del settore degli animali domestici, sostenendo al contempo le nostre iniziative per il benessere animale."
+    },
+    {
+      "QUESTION": "Come posso diventare un Ambasciatore Hexy?",
+      "ANSWER": "Il programma Ambasciatori Hexy è aperto ai membri della comunità che desiderano aiutare a coordinare il supporto locale ai rifugi. Le candidature saranno disponibili attraverso il nostro sito web, e gli ambasciatori selezionati aiuteranno a gestire le iniziative regionali."
+    },
+    {
+      "QUESTION": "Quando riceverò i miei token HEXY della prevendita?",
+      "ANSWER": "Dopo aver completato il tuo acquisto in prevendita, puoi utilizzare lo stesso wallet per riscattare i tuoi token $HEXY al lancio. Le date di riscatto e quotazione saranno condivise sui nostri canali social."
+    },
+    {
+      "QUESTION": "Come faccio a sapere che la prevendita è sicura?",
+      "ANSWER": "HEXYDOG garantisce la massima sicurezza attraverso la verifica KYC del team e un robusto sistema di sicurezza, inclusi audit degli smart contract e misure anti-rug. Trasparenza e fiducia sono le nostre priorità, rendendo il tuo investimento nella prevendita sicuro e affidabile."
+    },
+    {
+      "QUESTION": "Come posso vedere i miei token HEXY acquistati?",
+      "ANSWER": "Basta connettere il tuo wallet al widget di pagamento sul nostro sito web, e i tuoi token $HEXY acquistati verranno visualizzati istantaneamente. Assicurati di utilizzare il wallet e la rete corretti per un accesso senza problemi."
+    },
+    {
+      "QUESTION": "Come posso acquistare con carta?",
+      "ANSWER": "Clicca su MoonPay o ChangeNow sul nostro sito web per acquistare crypto dalle nostre opzioni multi-chain usando la tua carta. Poi, connetti il tuo wallet e usa la crypto acquistata per comprare token $HEXY."
+    }
+  ],
+  "LOGIN": {
+    "TITLE": "Accesso",
+    "PLEASE_LOGIN": "Accedi al tuo account per continuare",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "esempio@mail.com",
+    "PASSWORD": "Password",
+    "LOGIN_BUTTON": "Accedi"
+  },
+  "VALIDATION": {
+    "EMAIL_INVALID": "Inserisci un indirizzo email valido",
+    "EMAIL_REQUIRED": "L'email è obbligatoria",
+    "EMAIL_MAX_LENGTH": "L'email deve essere di 255 caratteri o meno",
+    "PASSWORD_REQUIRED": "La password è obbligatoria"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Benvenuto, {{name}}",
+    "TOTAL_BLOGS": "Totale Post Blog",
+    "PUBLISHED_BLOGS": "Post Pubblicati",
+    "DRAFT_BLOGS": "Bozze",
+    "RECENT_BLOGS": "Post Blog Recenti",
+    "NO_BLOGS_YET": "Nessun post blog creato ancora",
+    "QUICK_ACTIONS": "Azioni Rapide",
+    "MANAGE_BLOGS": "Gestisci Tutti i Blog",
+    "MENU": {
+      "DASHBOARD": "Dashboard",
+      "BLOGS": "Gestione Blog",
+      "PROFILE": "Profilo",
+      "SETTINGS": "Impostazioni",
+      "LOGOUT": "Esci"
+    },
+    "BLOG": {
+      "TITLE": "Gestione Blog",
+      "CREATE_NEW": "Crea Nuovo Blog",
+      "CREATE_BLOG": "Crea Post Blog",
+      "EDIT_BLOG": "Modifica Post Blog",
+      "TABLE": {
+        "TITLE": "Titolo",
+        "STATUS": "Stato",
+        "CREATED_AT": "Creato Il",
+        "UPDATED_AT": "Aggiornato Il",
+        "TAGS": "Tag",
+        "ACTIONS": "Azioni"
+      },
+      "PUBLISHED": "Pubblicato",
+      "UNPUBLISHED": "Non Pubblicato",
+      "DRAFT": "Bozza",
+      "NO_POSTS": "Nessun post blog trovato",
+      "NO_TAGS": "Nessun tag",
+      "DELETE_CONFIRM_TITLE": "Elimina Post Blog",
+      "DELETE_CONFIRM_MESSAGE": "Sei sicuro di voler eliminare '{{title}}'? Questa azione non può essere annullata.",
+      "UPDATED_SUCCESS": "Post blog aggiornato con successo",
+      "CREATED_SUCCESS": "Post blog creato con successo",
+      "NOT_FOUND": "Post blog non trovato",
+      "SEO_PREVIEW": "Anteprima SEO",
+      "PUBLISH": "Pubblica",
+      "UNPUBLISH": "Rimuovi Pubblicazione",
+      "EDIT": "Modifica",
+      "DELETE": "Elimina",
+      "VIEW": "Visualizza",
+      "CLONE": "Clona",
+      "FORM": {
+        "TITLE": "Titolo",
+        "SLUG": "Slug URL",
+        "SLUG_HELP": "La versione URL-friendly del titolo",
+        "CONTENT": "Contenuto",
+        "EXCERPT": "Estratto",
+        "EXCERPT_HELP": "Un breve riassunto del post blog",
+        "SEO_SETTINGS": "Impostazioni SEO",
+        "SEO_TITLE": "Titolo SEO",
+        "SEO_DESCRIPTION": "Meta Descrizione",
+        "SEO_KEYWORDS": "Parole Chiave",
+        "SEO_KEYWORDS_HELP": "Parole chiave separate da virgola",
+        "CHARACTERS": "caratteri",
+        "PUBLISH_SETTINGS": "Impostazioni di Pubblicazione",
+        "FEATURED_IMAGE": "Immagine in Evidenza",
+        "IMAGE_URL": "URL Immagine",
+        "UPLOAD_IMAGE": "Carica Immagine",
+        "QUILL_IMAGE_HELP": "Trascina e rilascia un'immagine o clicca per caricare",
+        "IMAGE_UPLOADED_SUCCESS": "Immagine caricata con successo",
+        "FEATURED_IMAGE_UPLOADED": "Immagine in evidenza caricata",
+        "TAGS": "Tag",
+        "ADD_TAG": "Aggiungi Tag"
+      }
+    }
+  },
+  "COMMON": {
+    "SAVE": "Salva",
+    "CANCEL": "Annulla",
+    "BACK": "Indietro",
+    "DELETE": "Elimina",
+    "EDIT": "Modifica",
+    "BACK_TO_BLOGS": "Torna ai Blog",
+    "ERROR_OCCURRED": "Si è verificato un errore",
+    "ADD": "Aggiungi",
+    "LOAD_MORE": "Carica Altro",
+    "SHARE": "Condividi"
+  },
+  "BLOG": {
+    "TITLE": "Blog HEXYDOG - Aggiornamenti su Crypto e Benessere Animale",
+    "DESCRIPTION": "Benvenuto nel Blog HEXYDOG, la tua fonte principale per aggiornamenti, approfondimenti e notizie sulla nostra prevendita crypto multi-chain a supporto del benessere animale.",
+    "SHARE_THIS_ARTICLE": "Ti è piaciuto questo articolo? Condividilo con i tuoi amici!",
+    "SHARE_ON_FACEBOOK": "Condividi su Facebook",
+    "SHARE_ON_TWITTER": "Condividi su Twitter",
+    "RELATED_POSTS": "Post Correlati"
+  },
+  "STAKE": {
+    "COMING_SOON": "Resta sintonizzato per entusiasmanti aggiornamenti!"
+  },
+  "NAVIGATION": {
+    "HOME": "Home",
+    "BLOG": "Blog"
+  },
+  "HELMET": {
+    "HOME_PAGE": {
+      "TITLE": "Hexydog - Prevendita crypto per la cura degli animali e l'utilità della blockchain",
+      "DESCRIPTION": "Hexydog (HEXY) fornisce soluzioni blockchain per trasformare il settore della cura degli animali. Unisciti alla migliore prevendita crypto del 2025 e guida l'innovazione nel benessere animale."
+    },
+    "NOT_FOUND": {
+      "TITLE": "404 - Pagina Non Trovata",
+      "DESCRIPTION": "Ci dispiace. Vuoi dare un'occhiata alla nostra Homepage?"
+    },
+    "BLOG": {
+      "TITLE": "Blog HEXYDOG - Aggiornamenti su Crypto e Benessere Animale",
+      "DESCRIPTION": "Benvenuto nel Blog HEXYDOG - la tua fonte principale per aggiornamenti sulla prevendita crypto e notizie sul benessere animale. Resta informato e unisciti alla nostra comunità!"
+    },
+    "STAKE": {
+      "TITLE": "HEXYDOG - Ricompense di Staking",
+      "DESCRIPTION": "Fai staking dei token HEXY per guadagnare ricompense passive e supportare iniziative per il benessere animale",
+      "COMING_SOON": "Resta sintonizzato per entusiasmanti aggiornamenti!"
+    }
+  }
+}
