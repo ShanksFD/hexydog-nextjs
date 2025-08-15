@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   turbopack: {},
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
   transpilePackages: [
     "@reown/appkit",
     "@reown/appkit-adapter-wagmi",
@@ -9,6 +13,9 @@ const nextConfig = {
     "wagmi",
     "viem",
   ],
+  generateBuildId: async () => {
+    return "build-" + Date.now();
+  },
 
   webpack: (config, { isServer }) => {
     if (!isServer) {

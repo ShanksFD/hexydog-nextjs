@@ -21,7 +21,6 @@ import {
 } from "@mui/material";
 import { KeyboardArrowLeft, Upload as UploadIcon } from "@mui/icons-material";
 
-// TinyMCE imports
 import { Editor } from "@tinymce/tinymce-react";
 
 import {

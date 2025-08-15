@@ -136,8 +136,10 @@ export const useImageUpload = () => {
   };
 };
 
-export default {
+const firebaseStorageService = {
   uploadImage,
   deleteImage,
   useImageUpload,
 };
+
+export default firebaseStorageService;
