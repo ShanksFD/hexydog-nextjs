@@ -10,9 +10,8 @@ import {
   CircularProgress,
   Alert,
   Divider,
-  Button,
 } from "@mui/material";
-import { useParams, useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -26,8 +25,8 @@ import { StyledButton } from "../../../components/Utils/UIUtils";
 
 const BlogPreview = () => {
   const { t } = useTranslation();
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const router = useRouter();
+  const id = router.query?.id;
   const dispatch = useAppDispatch();
 
   const blog = useAppSelector(selectCurrentBlog);
@@ -48,11 +47,11 @@ const BlogPreview = () => {
   };
 
   const handleEdit = () => {
-    navigate(`/blog-admin/blog/edit/${id}`);
+    router.push(`/blog-admin/blog/edit/${id}`);
   };
 
   const handleBack = () => {
-    navigate("/blog-admin/blogs");
+    router.push("/blog-admin/blogs");
   };
 
   if (loading && !blog) {

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Box,
   Container,
@@ -26,7 +25,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { app } from "../../firebase";
-import { theme } from "../../theme";
+import Link from "next/link";
+import { theme } from "@/lib/theme";
 
 const db = getFirestore(app);
 
