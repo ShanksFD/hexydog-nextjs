@@ -1,7 +1,12 @@
 import Providers from "@/components/Providers";
+import Script from "next/script";
 import "./globals.css";
+import { getDictionary } from "./[lang]/dictionaries";
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
   return {
     title: {
       template: "%s | HEXYDOG",
@@ -22,11 +27,6 @@ export async function generateMetadata() {
     authors: [{ name: "HEXYDOG" }],
     creator: "HEXYDOG",
     publisher: "HEXYDOG",
-
-    // Theme and display
-    themeColor: "#51A9FD",
-    colorScheme: "dark",
-    viewport: "width=device-width, initial-scale=1.0",
 
     // App configuration
     applicationName: "HEXYDOG",
@@ -121,6 +121,16 @@ export async function generateMetadata() {
   };
 }
 
+// Separate viewport export (required by Next.js 15)
+export async function generateViewport({ params }) {
+  return {
+    themeColor: "#51A9FD",
+    colorScheme: "dark",
+    width: "device-width",
+    initialScale: 1.0,
+  };
+}
+
 export default async function RootLayout({ children, params }) {
   const { lang } = await params;
 
@@ -135,22 +145,6 @@ export default async function RootLayout({ children, params }) {
         />
         <link rel="preconnect" href="https://hexydog-nextjs.netlify.app" />
 
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-H72HTNV3ZZ"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-H72HTNV3ZZ');
-            `,
-          }}
-        />
-
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -162,7 +156,7 @@ export default async function RootLayout({ children, params }) {
               name: "HEXY Token",
               description:
                 "HEXY is the utility token powering the Hexydog ecosystem, enabling crypto payments at pet stores and supporting animal welfare.",
-              image: "/social-media.webp",
+              image: "/og-image.jpg",
               url: "https://hexydog-nextjs.netlify.app",
               brand: {
                 "@type": "Brand",
@@ -179,6 +173,20 @@ export default async function RootLayout({ children, params }) {
       </head>
       <body>
         <Providers>{children}</Providers>
+
+        {/* Google Analytics with next/script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-H72HTNV3ZZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-H72HTNV3ZZ');
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -1,0 +1,16 @@
+{
+  "name": "HEXYDOG",
+  "short_name": "HEXYDOG",
+  "description": "Crypto Presale for Pet Care and Blockchain Utility",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#51A9FD",
+  "theme_color": "#51A9FD",
+  "icons": [
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ]
+}
