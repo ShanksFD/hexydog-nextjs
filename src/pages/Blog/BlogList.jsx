@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Box, Container, Typography, Stack, Breadcrumbs } from "@mui/material";
 
 import { theme } from "@/lib/theme";
-import LoadMoreButton from "./LoadMoreButton";
+import LoadMoreButton from "@/components/Blog/LoadMoreButton";
 
 const BlogList = ({ initialBlogs = [], dict, lang }) => {
   return (

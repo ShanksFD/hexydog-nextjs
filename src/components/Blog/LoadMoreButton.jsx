@@ -31,10 +31,10 @@ import { StyledButton } from "@/components/Ui";
 
 const db = getFirestore(app);
 
-const LoadMoreButton = ({ initialBlogs, dict, lang }) => {
-  const [blogs, setBlogs] = useState(initialBlogs);
+const LoadMoreButton = ({ initialBlogs = [], dict, lang }) => {
+  const [blogs, setBlogs] = useState(initialBlogs || []);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(initialBlogs.length >= 6);
+  const [hasMore, setHasMore] = useState(initialBlogs?.length >= 6);
   const pageSize = 6;
 
   const formatDate = (date) => {
