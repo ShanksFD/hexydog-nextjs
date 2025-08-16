@@ -29,7 +29,7 @@ npm run lint
 - **State Management**: Redux Toolkit with auth and blog slices
 - **Web3**: Wagmi v2, Viem, Reown AppKit for wallet connections
 - **Styling**: Tailwind CSS v4, MUI custom theme with dark mode
-- **Internationalization**: i18next with 8 language support (ar, de, en, es, fr, it, ry, tr)
+- **Internationalization**: nextjs internationalization with 8 language support (ar, de, en, es, fr, it, ry, tr)
 - **Backend Services**: Firebase (Auth, Storage)
 - **Rich Text**: TipTap editor for blog functionality
 

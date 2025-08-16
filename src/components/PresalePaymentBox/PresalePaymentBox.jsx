@@ -17,7 +17,6 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import { Trans, useTranslation } from "react-i18next";
 import { BiSad, BiSolidCopy } from "react-icons/bi";
 import { Formik } from "formik";
 import Link from "next/link";
@@ -452,10 +451,10 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
             }}
           >
             {true ? (
-              <Trans
-                i18nKey="HOME_PAGE.HERO.PRESALE.RAISED"
-                values={{ amount: formatAmount(raisedAmount) }}
-              />
+              dict.HOME_PAGE.HERO.PRESALE.RAISED.replace(
+                "{{amount}}",
+                formatAmount(raisedAmount)
+              )
             ) : (
               <Skeleton variant="text" width={100} />
             )}
@@ -468,10 +467,10 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
               fontWeight: "500",
             }}
           >
-            <Trans
-              i18nKey="HOME_PAGE.HERO.PRESALE.GOAL"
-              values={{ amount: formatNumber(goalAmount) }}
-            />
+            {dict.HOME_PAGE.HERO.PRESALE.GOAL.replace(
+              "{{amount}}",
+              formatNumber(goalAmount)
+            )}
           </Typography>
         </Stack>
 

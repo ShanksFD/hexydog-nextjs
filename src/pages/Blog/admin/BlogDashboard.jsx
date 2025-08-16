@@ -41,6 +41,7 @@ import {
   cloneBlogPost,
 } from "../../../redux/slices/blogSlice";
 import { StyledButton } from "@/components/Ui";
+import withClientOnly from "@/components/withClientOnly";
 
 const BlogDashboard = ({ dict }) => {
   const dispatch = useAppDispatch();
@@ -89,21 +90,16 @@ const BlogDashboard = ({ dict }) => {
   };
 
   const handleCloneClick = (blog) => {
-    // Remove non-serializable timestamp properties if present
     const blogToClone = { ...blog };
 
-    // Dispatch the clone action
     dispatch(cloneBlogPost(blogToClone))
       .unwrap()
-      .then(() => {
-        // Show success message or notification if needed
-      })
+      .then(() => {})
       .catch((error) => {
         console.error("Error cloning blog:", error);
       });
   };
 
-  // Function to truncate text for table display
   const truncateText = (text, maxLength = 50) => {
     if (!text) return "";
     return text.length > maxLength
@@ -338,4 +334,4 @@ const BlogDashboard = ({ dict }) => {
   );
 };
 
-export default BlogDashboard;
+export default withClientOnly(BlogDashboard);
