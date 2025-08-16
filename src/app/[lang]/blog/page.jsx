@@ -1,5 +1,5 @@
 import { getBlogPosts } from "@/services/blog";
-import BlogList from "@/pages/Blog/BlogList";
+import BlogList from "@/components/Blog/BlogList";
 import { getDictionary } from "../dictionaries";
 
 export default async function BlogPage({ params }) {

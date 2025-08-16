@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getBlogPost, getRelatedPosts } from "@/services/blog";
-import BlogPost from "@/pages/Blog/BlogPost";
+import BlogPost from "@/components/Blog/BlogPost";
 
 export async function generateMetadata({ params }) {
   const blog = await getBlogPost(params.slug);

@@ -1,4 +1,4 @@
-import Home from "@/pages/Home/Home";
+import Home from "@/components/Home/Home";
 import { getDictionary } from "./dictionaries";
 import MainHeader from "@/components/Header/MainHeader";
 import MainFooter from "@/components/Footer/MainFooter";

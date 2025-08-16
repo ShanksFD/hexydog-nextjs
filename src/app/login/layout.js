@@ -1,5 +1,5 @@
 import { getDictionary } from "@/app/[lang]/dictionaries";
-import Login from "@/pages/Login/Login";
+import Login from "@/components/Login/Login";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
