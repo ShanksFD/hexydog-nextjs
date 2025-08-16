@@ -1,4 +1,4 @@
-import BlogEditor from "@/pages/Blog/admin/BlogEditor";
+import BlogEditor from "@/components/Blog/admin/BlogEditor";
 
 const BlogCreatePage = () => {
   return <BlogEditor />;

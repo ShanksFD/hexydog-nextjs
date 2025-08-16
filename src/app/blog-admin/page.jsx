@@ -1,4 +1,4 @@
-import BlogDashboard from "@/pages/Blog/admin/BlogDashboard";
+import BlogDashboard from "@/components/Blog/admin/BlogDashboard";
 import { getDictionary } from "../[lang]/dictionaries";
 
 export async function generateMetadata({ params }) {

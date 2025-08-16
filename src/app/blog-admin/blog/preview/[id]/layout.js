@@ -1,5 +1,5 @@
 import { getDictionary } from "@/app/[lang]/dictionaries";
-import BlogPreview from "@/pages/Blog/admin/BlogPreview";
+import BlogPreview from "@/components/Blog/admin/BlogPreview";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
