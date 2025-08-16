@@ -1,3 +1,4 @@
+"use client";
 import BlogDashboard from "@/pages/Blog/admin/BlogDashboard";
 import { getDictionary } from "../[lang]/dictionaries";
 
