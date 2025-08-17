@@ -142,6 +142,7 @@ export async function generateViewport({ params }) {
 
 export default async function RootLayout({ children, params }) {
   const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   return (
     <html lang={lang} data-arp="">
@@ -154,19 +155,21 @@ export default async function RootLayout({ children, params }) {
         />
         <link rel="preconnect" href="https://hexydog-nextjs.netlify.app" />
 
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "@id": "https://hexydog-nextjs.netlify.app/#hexy-token",
-              name: "HEXY Token",
+              "@id": `https://hexydog-nextjs.netlify.app/${lang}`,
+              name:
+                dict.HELMET.HOME_PAGE.TITLE ||
+                "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
               description:
-                "HEXY is the utility token powering the Hexydog ecosystem, enabling crypto payments at pet stores and supporting animal welfare.",
-              image: "/og-image.jpg",
-              url: "https://hexydog-nextjs.netlify.app",
+                dict.HELMET.HOME_PAGE.DESCRIPTION ||
+                "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector.",
+              image: "https://hexydog-nextjs.netlify.app/og-image.jpg",
+              url: `https://hexydog-nextjs.netlify.app/${lang}`,
               brand: {
                 "@type": "Brand",
                 name: "Hexydog",
@@ -176,6 +179,7 @@ export default async function RootLayout({ children, params }) {
                 ratingValue: "4.8",
                 reviewCount: "120",
               },
+              inLanguage: lang,
             }),
           }}
         />
