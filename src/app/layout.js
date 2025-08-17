@@ -10,9 +10,12 @@ export async function generateMetadata({ params }) {
   return {
     title: {
       template: "%s | HEXYDOG",
-      default: "HEXYDOG – Crypto Presale for Pet Care and Blockchain Utility",
+      default:
+        dict.HELMET.HOME_PAGE.TITLE ||
+        "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
     },
     description:
+      dict.HELMET.HOME_PAGE.DESCRIPTION ||
       "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector. Join the best crypto presale of 2025 and drive innovation in animal welfare.",
     keywords: [
       "hexydog",
@@ -62,8 +65,11 @@ export async function generateMetadata({ params }) {
       locale: lang,
       url: `https://hexydog-nextjs.netlify.app/${lang}`,
       siteName: "HEXYDOG",
-      title: "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
+      title:
+        dict.HELMET.HOME_PAGE.TITLE ||
+        "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
       description:
+        dict.HELMET.HOME_PAGE.DESCRIPTION ||
         "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector. Join the best crypto presale of 2025 and drive innovation in animal welfare.",
       images: [
         {
@@ -80,8 +86,11 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       site: "@hexydog",
       creator: "@hexydog",
-      title: "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
+      title:
+        dict.HELMET.HOME_PAGE.TITLE ||
+        "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
       description:
+        dict.HELMET.HOME_PAGE.DESCRIPTION ||
         "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector. Join the best crypto presale of 2025 and drive innovation in animal welfare.",
       images: ["https://hexydog-nextjs.netlify.app/social-media.webp"],
     },
