@@ -1,7 +1,8 @@
-import { Container, Stack, Typography } from "@mui/material";
+import { Button, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
 import LiveChains from "./LiveChains";
+import ScrollToPresaleButton from "@/components/PresalePaymentBox/Components/ScrollToPresaleButton";
 
 export default function About({ dict }) {
   return (
@@ -65,6 +66,8 @@ export default function About({ dict }) {
             >
               {dict.HOME_PAGE.ABOUT.PARAGRAPH}
             </Typography>
+
+            <ScrollToPresaleButton dict={dict} />
           </Stack>
         </Stack>
 

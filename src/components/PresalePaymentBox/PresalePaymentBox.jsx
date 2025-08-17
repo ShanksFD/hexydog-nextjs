@@ -359,6 +359,7 @@ const PresalePaymentBox = ({ dict }) => {
   return (
     <Stack
       gap={1}
+      id="presale-payment-box"
       sx={{
         px: "12px",
         mt: { xs: 2, sm: 10 },
