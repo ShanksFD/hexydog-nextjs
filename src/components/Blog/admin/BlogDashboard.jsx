@@ -43,7 +43,7 @@ import {
 import { StyledButton } from "@/components/Ui";
 import withClientOnly from "@/components/withClientOnly";
 
-const BlogDashboard = ({ dict }) => {
+const BlogDashboard = ({ dict, lang }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const blogs = useAppSelector(selectAllBlogs);
@@ -56,15 +56,15 @@ const BlogDashboard = ({ dict }) => {
   }, [dispatch]);
 
   const handleCreateNew = () => {
-    router.push("/blog-admin/blog/create");
+    router.push(`/${lang}/blog-admin/blog/create`);
   };
 
   const handleEdit = (id) => {
-    router.push(`/blog-admin/blog/edit/${id}`);
+    router.push(`/${lang}/blog-admin/blog/edit/${id}`);
   };
 
   const handleView = (id) => {
-    window.open(`/blog-admin/blog/preview/${id}`, "_blank");
+    window.open(`/${lang}/blog-admin/blog/preview/${id}`, "_blank");
   };
 
   const handlePublishToggle = (id, published) => {

@@ -1,7 +1,7 @@
 import Home from "@/components/Home/Home";
-import { getDictionary } from "./dictionaries";
 import MainHeader from "@/components/Header/MainHeader";
 import MainFooter from "@/components/Footer/MainFooter";
+import { getDictionary } from "./dictionaries";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;

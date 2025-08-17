@@ -40,7 +40,7 @@ const ALLOWED_FILE_TYPES = [
   "image/webp",
 ];
 
-const BlogEditor = () => {
+const BlogEditor = ({ lang }) => {
   const router = useRouter();
   const params = useParams();
   const id = params?.id;
@@ -294,7 +294,7 @@ const BlogEditor = () => {
 
       if (!isEditMode) {
         setTimeout(() => {
-          router.push("/blog-admin");
+          router.push(`/${lang}/blog-admin`);
         }, 1500);
       }
     } catch (err) {
@@ -305,7 +305,7 @@ const BlogEditor = () => {
   };
 
   const handleCancel = () => {
-    router.push("/blog-admin");
+    router.push(`/${lang}/blog-admin`);
   };
 
   const handleSnackbarClose = () => {

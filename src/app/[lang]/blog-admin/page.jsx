@@ -1,5 +1,5 @@
 import BlogDashboard from "@/components/Blog/admin/BlogDashboard";
-import { getDictionary } from "../[lang]/dictionaries";
+import { getDictionary } from "../dictionaries";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
 const BlogPage = async ({ params }) => {
   const { lang } = await params;
   const dict = await getDictionary(lang);
-  return <BlogDashboard dict={dict} />;
+  return <BlogDashboard dict={dict} lang={lang} />;
 };
 
 export default BlogPage;

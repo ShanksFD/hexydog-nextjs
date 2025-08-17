@@ -14,5 +14,5 @@ export async function generateMetadata({ params }) {
 export default async function RootLayout({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
-  return <BlogPreview dict={dict} />;
+  return <BlogPreview dict={dict} lang={lang} />;
 }

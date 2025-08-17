@@ -22,7 +22,7 @@ import {
 } from "../../../redux/slices/blogSlice";
 import { StyledButton } from "@/components/Ui";
 
-const BlogPreview = ({ dict }) => {
+const BlogPreview = ({ dict, lang }) => {
   const router = useRouter();
   const params = useParams();
   const id = params?.id;
@@ -47,11 +47,11 @@ const BlogPreview = ({ dict }) => {
   };
 
   const handleEdit = () => {
-    router.push(`/blog-admin/blog/edit/${id}`);
+    router.push(`/${lang}/blog-admin/blog/edit/${id}`);
   };
 
   const handleBack = () => {
-    router.push("/blog-admin");
+    router.push(`/${lang}/blog-admin`);
   };
 
   if (loading && !blog) {

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
 const BlogEditorPage = async ({ params }) => {
   const { lang } = await params;
   const dict = await getDictionary(lang);
-  return <BlogEditor dict={dict} />;
+  return <BlogEditor dict={dict} lang={lang} />;
 };
 
 export default BlogEditorPage;
