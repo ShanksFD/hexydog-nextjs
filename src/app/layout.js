@@ -179,6 +179,69 @@ export default async function RootLayout({ children, params }) {
             }),
           }}
         />
+
+        <meta
+          itemprop="name"
+          content={
+            dict.HELMET.HOME_PAGE.TITLE ||
+            "Hexydog - Crypto Presale for Pet Care and Blockchain Utility"
+          }
+        />
+        <meta
+          itemprop="description"
+          content={
+            dict.HELMET.HOME_PAGE.DESCRIPTION ||
+            "Hexydog (HEXY) propose des solutions blockchain pour transformer le secteur des soins aux animaux. Participez à la meilleure prévente crypto de 2025 et stimulez"
+          }
+        />
+        <meta
+          itemprop="image"
+          content="https://hexydog-nextjs.netlify.app/social-media.webp"
+        />
+
+        <meta
+          property="og:url"
+          content={`https://hexydog-nextjs.netlify.app/${lang}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={
+            dict.HELMET.HOME_PAGE.TITLE ||
+            "Hexydog - Crypto Presale for Pet Care and Blockchain Utility"
+          }
+        />
+        <meta
+          property="og:description"
+          content={
+            dict.HELMET.HOME_PAGE.DESCRIPTION ||
+            "Hexydog (HEXY) propose des solutions blockchain pour transformer le secteur des soins aux animaux. Participez à la meilleure prévente crypto de 2025 et stimulez"
+          }
+        />
+        <meta
+          property="og:image"
+          content="https://hexydog-nextjs.netlify.app/social-media.webp"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={
+            dict.HELMET.HOME_PAGE.TITLE ||
+            "Hexydog - Crypto Presale for Pet Care and Blockchain Utility"
+          }
+        />
+        <meta
+          name="twitter:description"
+          content={
+            dict.HELMET.HOME_PAGE.DESCRIPTION ||
+            "Hexydog (HEXY) propose des solutions blockchain pour transformer le secteur des soins aux animaux. Participez à la meilleure prévente crypto de 2025 et stimulez"
+          }
+        />
+        <meta
+          name="twitter:image"
+          content="https://hexydog-nextjs.netlify.app/social-media.webp"
+        />
       </head>
       <body>
         <Providers>{children}</Providers>
