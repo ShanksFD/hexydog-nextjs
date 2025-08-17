@@ -179,7 +179,6 @@ export default async function RootLayout({ children, params }) {
                 ratingValue: "4.8",
                 reviewCount: "120",
               },
-              inLanguage: lang,
             }),
           }}
         />
