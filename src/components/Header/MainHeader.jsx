@@ -254,6 +254,7 @@ export default function MainHeader({ dict, lang }) {
                         transform: "translateY(-2px)",
                         color: "text.white",
                       },
+                      transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                     }}
                   >
                     {link.label}
@@ -279,6 +280,7 @@ export default function MainHeader({ dict, lang }) {
                         transform: "translateY(-2px)",
                         color: "primary.neutral400",
                       },
+                      transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                     }}
                   >
                     {link.logo}

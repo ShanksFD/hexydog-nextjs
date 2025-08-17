@@ -113,17 +113,19 @@ const ProgressTracker = ({
   useEffect(() => {
     if (purchaseCompleted) {
       const refetchAll = async () => {
-        await Promise.all([
-          refetchETHProgress(),
-          refetchETHUSDC(),
-          refetchETHUSDT(),
-          refetchETHPrice(),
-          refetchBNBProgress(),
-          refetchBSCUSDT(),
-          refetchBNBPrice(),
-          refetchEthUserPurchases(),
-          refetchBscUserPurchases(),
-        ]);
+        setTimeout(async () => {
+          await Promise.all([
+            refetchETHProgress(),
+            refetchETHUSDC(),
+            refetchETHUSDT(),
+            refetchETHPrice(),
+            refetchBNBProgress(),
+            refetchBSCUSDT(),
+            refetchBNBPrice(),
+            refetchEthUserPurchases(),
+            refetchBscUserPurchases(),
+          ]);
+        }, 1000);
       };
       refetchAll();
     }

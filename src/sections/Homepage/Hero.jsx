@@ -3,9 +3,9 @@ import Image from "next/image";
 
 import { theme } from "@/lib/theme";
 import HeroNotifications from "./Components/HeroNotifications";
-import HeroPresaleBox from "./Components/HeroPresaleBox";
 import HeroCountdown from "./Components/HeroCountdown";
 import { StyledButton } from "@/components/Ui";
+import PresalePaymentBox from "@/components/PresalePaymentBox/PresalePaymentBox";
 
 export default function Hero({ dict }) {
   return (
@@ -133,8 +133,10 @@ export default function Hero({ dict }) {
               color: theme.palette.primary.neutral1000,
               "&:hover": {
                 transform: "translateY(-2px)",
-                color: theme.palette.primary.neutral900,
+                color: theme.palette.primary.neutral1000,
+                backgroundColor: theme.palette.primary.main,
               },
+              transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
             {dict.HOME_PAGE.HERO.BUTTON_AUDIT}
@@ -152,7 +154,7 @@ export default function Hero({ dict }) {
         </Stack>
 
         <Box sx={{ width: "100%", flexBasis: "45%" }}>
-          <HeroPresaleBox dict={dict} />
+          <PresalePaymentBox dict={dict} />
         </Box>
       </Container>
 

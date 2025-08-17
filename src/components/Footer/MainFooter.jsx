@@ -102,6 +102,7 @@ export default function MainFooter({ dict }) {
                         ),
                         transform: "translateY(-2px)",
                       },
+                      transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                     }}
                   >
                     {link.logo}
@@ -119,8 +120,8 @@ export default function MainFooter({ dict }) {
                   mt: 1,
                   "&:hover": {
                     color: "primary.neutral400",
-                    textDecoration: "underline",
                   },
+                  transition: "color 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
               >
                 <Box

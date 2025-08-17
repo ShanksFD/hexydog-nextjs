@@ -40,16 +40,12 @@ import ProgressTracker, { formatAmount } from "./Components/ProgressTracker";
 import TokenCalculator from "./Components/TokenCalculator";
 import TokenPurchaseHandler from "./Components/TokenPurchaseHandler";
 import {
-  ETH_PRESALE_ABI,
-  ETH_PRESALE_ADDRESS,
-  ethContractChainId,
   isDev,
   TEST_CA,
   TEST_CONTRACT_ABI,
 } from "../../constants/wagmiConstants";
 import { useReadContract } from "wagmi";
 import { detectWalletType, logWalletError } from "../../utils/errorLogger";
-import { formatUnits } from "viem";
 import { theme } from "@/lib/theme";
 import { formatNumber, StyledButton } from "../Ui";
 
@@ -92,7 +88,7 @@ const NetworkOption = reactMemo(({ icon, name }) => (
   </Stack>
 ));
 
-const SolanaAddressComponent = () => {
+const SolanaAddressComponent = ({ dict }) => {
   const [copied, setCopied] = useState(false);
   const solanaAddress = "FdSNWvfhLpqnnX72nDEXuPJ2dNB236ZkGRn1NXNjDzaB";
 
@@ -209,20 +205,12 @@ const NETWORK_CONFIG = {
   },
 };
 
-const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
+const PresalePaymentBox = ({ dict }) => {
   const { data: isPaused = false } = useReadContract({
     address: TEST_CA,
     abi: TEST_CONTRACT_ABI,
     chainId: 56,
     functionName: "paused",
-    watch: true,
-  });
-
-  const { data: tokenPriceUSD } = useReadContract({
-    address: ETH_PRESALE_ADDRESS,
-    abi: ETH_PRESALE_ABI,
-    chainId: ethContractChainId,
-    functionName: "tokenPriceUSD",
     watch: true,
   });
 
@@ -236,6 +224,8 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
   const [tokensToBuy, setTokensToBuy] = useState("0");
   const [lastSwitchTime, setLastSwitchTime] = useState(0);
   const [purchaseCompleted, setPurchaseCompleted] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [successTimer, setSuccessTimer] = useState(null);
 
   const getCurrentNetwork = () => {
     if (caipNetworkId) {
@@ -265,26 +255,6 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
   };
 
   const [selectedNetwork, setSelectedNetwork] = useState(getCurrentNetwork());
-
-  useEffect(() => {
-    if (caipNetworkId) {
-      const networkKey =
-        Object.entries(NETWORK_CONFIG).find(
-          ([_, config]) => config.caipNetworkId === caipNetworkId
-        )?.[0] || "eth";
-
-      setSelectedNetwork(networkKey);
-
-      const paymentMethod =
-        networkKey === "bscTestnet" || networkKey === "bsc"
-          ? "bsc"
-          : networkKey === "sepolia" || networkKey === "eth"
-          ? "eth"
-          : networkKey;
-      setPaymentMethod(paymentMethod);
-      // switchNetwork(NETWORK_CONFIG[networkKey].network);
-    }
-  }, [caipNetworkId, switchNetwork]);
 
   useEffect(() => {
     if (!isConnected) {
@@ -319,6 +289,12 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
     setLastSwitchTime(now);
     setSelectedNetwork(newNetworkKey);
 
+    if (newNetworkKey === "bsc" || newNetworkKey === "bscTestnet") {
+      setPaymentMethod("bsc");
+    } else if (newNetworkKey === "sepolia") {
+      setPaymentMethod("eth");
+    }
+
     if (newNetworkKey !== "sol") {
       try {
         await switchNetwork(NETWORK_CONFIG[newNetworkKey].network);
@@ -343,7 +319,6 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
   });
 
   const goalAmount = 2100000;
-  const currentPrice = Number(formatUnits(tokenPriceUSD || 0n, 4));
   const [raisedAmount, setRaisedAmount] = useState(0);
   const [tokensBought, setTokensBought] = useState(0);
   const progressPercents =
@@ -357,15 +332,29 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
       setTokensToBuy("0");
       setError(null);
       setPurchaseCompleted(true);
-      onPurchaseSuccess?.();
+
+      setShowSuccess(true);
+
+      if (successTimer) {
+        clearTimeout(successTimer);
+      }
 
       const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+
+      setSuccessTimer(timer);
+
+      const completedTimer = setTimeout(() => {
         setPurchaseCompleted(false);
       }, 1000);
 
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(completedTimer);
+      };
     }
-  }, [isCompleted, onPurchaseSuccess]);
+  }, [isCompleted]);
 
   return (
     <Stack
@@ -650,7 +639,7 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
             )}
 
             {selectedNetwork === "sol" ? (
-              <SolanaAddressComponent t={t} />
+              <SolanaAddressComponent dict={dict} />
             ) : (
               <Stack
                 direction={"row"}
@@ -981,8 +970,43 @@ const PresalePaymentBox = ({ dict, onPurchaseSuccess }) => {
               ? dict.HOME_PAGE.HERO.PRESALE.PURCHASING
               : isProcessing
               ? dict.HOME_PAGE.HERO.PRESALE.PROCESSING
-              : dict.HOME_PAGE.HERO.PRESALE.BUY({ amount: tokensToBuy })}
+              : dict.HOME_PAGE.HERO.PRESALE.BUY?.replace(
+                  "{{amount}}",
+                  tokensToBuy
+                )}
           </StyledButton>
+        )}
+
+        {showSuccess && (
+          <Alert
+            severity="success"
+            onClose={() => {
+              setShowSuccess(false);
+              if (successTimer) {
+                clearTimeout(successTimer);
+                setSuccessTimer(null);
+              }
+            }}
+            sx={{
+              mt: 1,
+              maxWidth: "100%",
+              backgroundColor: alpha(theme.palette.success.main, 0.4),
+              borderRadius: theme.shape.defaultBorderRadius,
+              border: "2px solid",
+              borderColor: darken(theme.palette.success.main, 0.3),
+              fontWeight: "400",
+              "& .MuiAlert-icon": {
+                color: lighten(theme.palette.success.main, 0.5),
+              },
+              "& .MuiAlert-message": {
+                width: "100%",
+                wordBreak: "break-word",
+                color: lighten(theme.palette.success.main, 0.5),
+              },
+            }}
+          >
+            {dict.HOME_PAGE.HERO.PRESALE.PURCHASE_SUCCESS}
+          </Alert>
         )}
 
         {error && (
