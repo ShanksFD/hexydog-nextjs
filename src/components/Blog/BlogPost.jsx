@@ -66,9 +66,7 @@ const BlogPost = ({ blog, relatedPosts = [], translations = {} }) => {
     );
   }
 
-  const canonicalUrl = `https://hexydog-nextjs.netlify.app/blog/${
-    blog.slug || blog.id
-  }`;
+  const canonicalUrl = `https://hexydog.com/blog/${blog.slug || blog.id}`;
 
   return (
     <Stack

@@ -13,9 +13,7 @@ export async function generateMetadata({ params }) {
 
   const seoTitle = blog.seo?.title || blog.title;
   const seoDescription = blog.seo?.description || blog.excerpt || "";
-  const canonicalUrl = `https://hexydog-nextjs.netlify.app/blog/${
-    blog.slug || blog.id
-  }`;
+  const canonicalUrl = `https://hexydog.com/blog/${blog.slug || blog.id}`;
 
   return {
     title: `${seoTitle} | HEXYDOG`,

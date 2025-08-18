@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       type: "website",
       locale: lang,
-      url: `https://hexydog-nextjs.netlify.app/${lang}`,
+      url: `https://hexydog.com/${lang}`,
       siteName: "HEXYDOG",
       title:
         dict.HELMET.HOME_PAGE.TITLE ||
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }) {
         "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector. Join the best crypto presale of 2025 and drive innovation in animal welfare.",
       images: [
         {
-          url: "https://hexydog-nextjs.netlify.app/social-media.webp",
+          url: "https://hexydog.com/social-media.webp",
           width: 1200,
           height: 630,
           alt: "HEXYDOG - Crypto Presale for Pet Care",
@@ -93,7 +93,7 @@ export async function generateMetadata({ params }) {
       description:
         dict.HELMET.HOME_PAGE.DESCRIPTION ||
         "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector. Join the best crypto presale of 2025 and drive innovation in animal welfare.",
-      images: ["https://hexydog-nextjs.netlify.app/social-media.webp"],
+      images: ["https://hexydog.com/social-media.webp"],
     },
 
     // Robots
@@ -111,16 +111,16 @@ export async function generateMetadata({ params }) {
 
     // Language alternates
     alternates: {
-      canonical: `https://hexydog-nextjs.netlify.app/${lang}`,
+      canonical: `https://hexydog.com/${lang}`,
       languages: {
-        en: "https://hexydog-nextjs.netlify.app/en",
-        tr: "https://hexydog-nextjs.netlify.app/tr",
-        ru: "https://hexydog-nextjs.netlify.app/ru",
-        es: "https://hexydog-nextjs.netlify.app/es",
-        fr: "https://hexydog-nextjs.netlify.app/fr",
-        de: "https://hexydog-nextjs.netlify.app/de",
-        it: "https://hexydog-nextjs.netlify.app/it",
-        ar: "https://hexydog-nextjs.netlify.app/ar",
+        en: "https://hexydog.com/en",
+        tr: "https://hexydog.com/tr",
+        ru: "https://hexydog.com/ru",
+        es: "https://hexydog.com/es",
+        fr: "https://hexydog.com/fr",
+        de: "https://hexydog.com/de",
+        it: "https://hexydog.com/it",
+        ar: "https://hexydog.com/ar",
       },
     },
 
@@ -153,7 +153,7 @@ export default async function RootLayout({ children, params }) {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="preconnect" href="https://hexydog-nextjs.netlify.app" />
+        <link rel="preconnect" href="https://hexydog.com" />
 
         <script
           type="application/ld+json"
@@ -161,15 +161,15 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "@id": `https://hexydog-nextjs.netlify.app/${lang}`,
+              "@id": `https://hexydog.com/${lang}`,
               name:
                 dict.HELMET.HOME_PAGE.TITLE ||
                 "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
               description:
                 dict.HELMET.HOME_PAGE.DESCRIPTION ||
                 "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector.",
-              image: "https://hexydog-nextjs.netlify.app/og-image.jpg",
-              url: `https://hexydog-nextjs.netlify.app/${lang}`,
+              image: "https://hexydog.com/og-image.jpg",
+              url: `https://hexydog.com/${lang}`,
               brand: {
                 "@type": "Brand",
                 name: "Hexydog",

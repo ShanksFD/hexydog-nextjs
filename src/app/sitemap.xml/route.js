@@ -13,7 +13,7 @@ export async function GET() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Root homepage -->
   <url>
-    <loc>https://hexydog-nextjs.netlify.app</loc>
+    <loc>https://hexydog.com</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -24,7 +24,7 @@ export async function GET() {
     .map(
       (lang) => `
   <url>
-    <loc>https://hexydog-nextjs.netlify.app/${lang.code}</loc>
+    <loc>https://hexydog.com/${lang.code}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -34,7 +34,7 @@ export async function GET() {
   
   <!-- Main blog page -->
   <url>
-    <loc>https://hexydog-nextjs.netlify.app/blog</loc>
+    <loc>https://hexydog.com/blog</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -45,7 +45,7 @@ export async function GET() {
     .map(
       (lang) => `
   <url>
-    <loc>https://hexydog-nextjs.netlify.app/${lang.code}/blog</loc>
+    <loc>https://hexydog.com/${lang.code}/blog</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -60,9 +60,7 @@ export async function GET() {
         .map(
           (lang) => `
   <url>
-    <loc>https://hexydog-nextjs.netlify.app/${lang.code}/blog/${
-            blog.slug || blog.id
-          }</loc>
+    <loc>https://hexydog.com/${lang.code}/blog/${blog.slug || blog.id}</loc>
     <lastmod>${
       blog.updatedAt ? blog.updatedAt.toISOString().split("T")[0] : currentDate
     }</lastmod>
