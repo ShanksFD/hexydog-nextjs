@@ -1,5 +1,6 @@
 {
   "name": "hexydog-nextjs",
+  "homepage": "https://hexydog.com",
   "version": "0.1.0",
   "private": true,
   "scripts": {

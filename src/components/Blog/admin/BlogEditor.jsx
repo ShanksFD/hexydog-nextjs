@@ -407,10 +407,9 @@ const BlogEditor = ({ lang }) => {
             </Typography>
 
             <Box sx={{ mb: 3 }}>
-              {/* FIXED: Only render Editor on client-side to prevent hydration issues */}
               {isClient ? (
                 <Editor
-                  apiKey="91nn4c8egy6t05rg5x9wo6og0os8wuhympfepvckbgye8lbm"
+                  apiKey="bxtkzu0y20gs2z9ieuyh1q9qeewidyuvpdpgsjknbcjkek83"
                   value={content}
                   onEditorChange={(newContent) => setContent(newContent)}
                   init={editorConfig}

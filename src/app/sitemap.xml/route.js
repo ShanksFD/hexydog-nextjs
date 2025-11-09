@@ -4,7 +4,7 @@ import { supportedLanguages } from "@/constants/langConstants";
 
 export async function GET() {
   try {
-    const blogs = await getBlogPosts();
+    const blogs = await getBlogPosts(1000);
     console.log("Fetched blogs:", blogs);
     const validBlogs = blogs.filter((blog) => blog.slug && blog.updatedAt);
     const currentDate = new Date().toISOString().split("T")[0];
