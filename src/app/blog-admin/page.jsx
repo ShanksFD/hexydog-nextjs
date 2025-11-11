@@ -1,8 +1,9 @@
 import BlogDashboard from "@/components/Blog/admin/BlogDashboard";
 import { getDictionary } from "../dictionaries";
+import { getLocale } from "@/lib/locale";
 
-export async function generateMetadata({ params }) {
-  const { lang } = await params;
+export async function generateMetadata() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return {
@@ -11,8 +12,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const BlogPage = async ({ params }) => {
-  const { lang } = await params;
+const BlogPage = async () => {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
   return <BlogDashboard dict={dict} lang={lang} />;
 };

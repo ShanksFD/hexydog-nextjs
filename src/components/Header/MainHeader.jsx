@@ -111,7 +111,7 @@ export default function MainHeader({ dict, lang }) {
       isScroll: true,
     },
     {
-      href: `/${language}/blog`,
+      href: "/blog",
       label: dict.MAIN_HEADER.MENU.BLOG,
       isScroll: false,
     },
@@ -165,9 +165,11 @@ export default function MainHeader({ dict, lang }) {
     setMenuPopoverEnchorEl(null);
     setLanguage(newLanguage);
 
-    const currentPath = window.location.pathname;
-    const pathWithoutLang = currentPath.replace(/^\/[a-z]{2}/, "");
-    router.push(`/${newLanguage}${pathWithoutLang}`);
+    // Set cookie with the new language
+    document.cookie = `NEXT_LOCALE=${newLanguage}; path=/; max-age=${365 * 24 * 60 * 60}`;
+    
+    // Reload the page to apply the new language
+    window.location.reload();
   };
 
   return (

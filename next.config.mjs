@@ -67,16 +67,8 @@ const nextConfig = {
 
   experimental: {
     optimizePackageImports: ["@mui/material", "@mui/icons-material"],
-  },
-
-  async redirects() {
-    return [
-      {
-        source: "/", // The incoming path to match
-        destination: "/en", // The path to redirect to
-        permanent: true, // true for 308 (permanent), false for 307 (temporary)
-      },
-    ];
+    workerThreads: false,
+    cpus: 1,
   },
 };
 

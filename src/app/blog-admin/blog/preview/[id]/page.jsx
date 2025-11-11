@@ -5,3 +5,4 @@ const BlogPreviewPage = async ({ children }) => {
 };
 
 export default BlogPreviewPage;
+

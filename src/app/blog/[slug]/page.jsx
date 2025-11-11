@@ -3,7 +3,8 @@ import { getBlogPost, getRelatedPosts } from "@/services/blog";
 import BlogPost from "@/components/Blog/BlogPost";
 
 export async function generateMetadata({ params }) {
-  const blog = await getBlogPost(params.slug);
+  const { slug } = await params;
+  const blog = await getBlogPost(slug);
 
   if (!blog) {
     return {
@@ -42,7 +43,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-  const blog = await getBlogPost(params.slug);
+  const { slug } = await params;
+  const blog = await getBlogPost(slug);
 
   if (!blog || !blog.published) {
     notFound();
@@ -71,3 +73,4 @@ export default async function BlogPostPage({ params }) {
     />
   );
 }
+

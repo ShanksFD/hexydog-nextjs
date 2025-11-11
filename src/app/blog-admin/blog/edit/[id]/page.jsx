@@ -1,8 +1,9 @@
-import { getDictionary } from "@/app/[lang]/dictionaries";
+import { getDictionary } from "@/app/dictionaries";
+import { getLocale } from "@/lib/locale";
 import BlogEditor from "@/components/Blog/admin/BlogEditor";
 
-export async function generateMetadata({ params }) {
-  const { lang } = await params;
+export async function generateMetadata() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return {
@@ -11,10 +12,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const BlogEditorPage = async ({ params }) => {
-  const { lang } = await params;
+const BlogEditorPage = async () => {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
   return <BlogEditor dict={dict} lang={lang} />;
 };
 
 export default BlogEditorPage;
+

@@ -1,9 +1,10 @@
 import MainFooter from "@/components/Footer/MainFooter";
 import MainHeader from "@/components/Header/MainHeader";
 import { getDictionary } from "../dictionaries";
+import { getLocale } from "@/lib/locale";
 
-export default async function BlogLayout({ children, params }) {
-  const { lang } = await params;
+export default async function BlogLayout({ children }) {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
   return (
     <div>
@@ -13,3 +14,4 @@ export default async function BlogLayout({ children, params }) {
     </div>
   );
 }
+

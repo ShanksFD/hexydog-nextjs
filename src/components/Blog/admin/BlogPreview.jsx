@@ -47,11 +47,11 @@ const BlogPreview = ({ dict, lang }) => {
   };
 
   const handleEdit = () => {
-    router.push(`/${lang}/blog-admin/blog/edit/${id}`);
+    router.push(`/blog-admin/blog/edit/${id}`);
   };
 
   const handleBack = () => {
-    router.push(`/${lang}/blog-admin`);
+    router.push("/blog-admin");
   };
 
   if (loading && !blog) {

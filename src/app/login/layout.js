@@ -1,8 +1,9 @@
-import { getDictionary } from "@/app/[lang]/dictionaries";
 import Login from "@/components/Login/Login";
+import { getDictionary } from "../dictionaries";
+import { getLocale } from "@/lib/locale";
 
-export async function generateMetadata({ params }) {
-  const { lang } = await params;
+export async function generateMetadata() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return {
@@ -11,8 +12,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function RootLayout({ params }) {
-  const { lang } = await params;
+export default async function RootLayout() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
   return <Login dict={dict} />;
 }
+

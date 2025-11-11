@@ -294,7 +294,7 @@ const BlogEditor = ({ lang }) => {
 
       if (!isEditMode) {
         setTimeout(() => {
-          router.push(`/${lang}/blog-admin`);
+          router.push("/blog-admin");
         }, 1500);
       }
     } catch (err) {
@@ -305,7 +305,7 @@ const BlogEditor = ({ lang }) => {
   };
 
   const handleCancel = () => {
-    router.push(`/${lang}/blog-admin`);
+    router.push("/blog-admin");
   };
 
   const handleSnackbarClose = () => {

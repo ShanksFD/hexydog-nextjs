@@ -117,7 +117,7 @@ const LoadMoreButton = ({ initialBlogs = [], dict, lang }) => {
             >
               <CardActionArea
                 component={Link}
-                href={`/${lang}/blog/${blog.slug || blog.id}`}
+                href={`/blog/${blog.slug || blog.id}`}
                 sx={{
                   display: "flex",
                   flexDirection: "column",

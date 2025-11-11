@@ -1,9 +1,10 @@
 import { getDictionary } from "../dictionaries";
+import { getLocale } from "@/lib/locale";
 import { theme } from "@/lib/theme";
 import { Box, Container, Typography } from "@mui/material";
 
-export default async function StakePage({ params }) {
-  const { lang } = await params;
+export default async function StakePage() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return (
@@ -41,3 +42,4 @@ export default async function StakePage({ params }) {
     </Box>
   );
 }
+

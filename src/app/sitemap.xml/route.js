@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getBlogPosts } from "@/services/blog";
-import { supportedLanguages } from "@/constants/langConstants";
 
 export async function GET() {
   try {
@@ -19,19 +18,6 @@ export async function GET() {
     <priority>1.0</priority>
   </url>
   
-  <!-- Language-specific homepages -->
-  ${supportedLanguages
-    .map(
-      (lang) => `
-  <url>
-    <loc>https://hexydog.com/${lang.code}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>`
-    )
-    .join("")}
-  
   <!-- Main blog page -->
   <url>
     <loc>https://hexydog.com/blog</loc>
@@ -40,35 +26,17 @@ export async function GET() {
     <priority>0.8</priority>
   </url>
   
-  <!-- Language-specific blog pages -->
-  ${supportedLanguages
-    .map(
-      (lang) => `
-  <url>
-    <loc>https://hexydog.com/${lang.code}/blog</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>`
-    )
-    .join("")}
-  
-  <!-- Individual blog posts for each language -->
+  <!-- Individual blog posts -->
   ${validBlogs
-    .map((blog) =>
-      supportedLanguages
-        .map(
-          (lang) => `
+    .map((blog) => `
   <url>
-    <loc>https://hexydog.com/${lang.code}/blog/${blog.slug || blog.id}</loc>
+    <loc>https://hexydog.com/blog/${blog.slug || blog.id}</loc>
     <lastmod>${
       blog.updatedAt ? blog.updatedAt.toISOString().split("T")[0] : currentDate
     }</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`
-        )
-        .join("")
     )
     .join("")}
 </urlset>`;

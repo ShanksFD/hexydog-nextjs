@@ -56,15 +56,15 @@ const BlogDashboard = ({ dict, lang }) => {
   }, [dispatch]);
 
   const handleCreateNew = () => {
-    router.push(`/${lang}/blog-admin/blog/create`);
+    router.push("/blog-admin/blog/create");
   };
 
   const handleEdit = (id) => {
-    router.push(`/${lang}/blog-admin/blog/edit/${id}`);
+    router.push(`/blog-admin/blog/edit/${id}`);
   };
 
   const handleView = (id) => {
-    window.open(`/${lang}/blog-admin/blog/preview/${id}`, "_blank");
+    window.open(`/blog-admin/blog/preview/${id}`, "_blank");
   };
 
   const handlePublishToggle = (id, published) => {

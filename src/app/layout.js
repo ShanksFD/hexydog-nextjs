@@ -1,11 +1,11 @@
 import Script from "next/script";
-import "./../globals.css";
+import "./globals.css";
 import { getDictionary } from "./dictionaries";
+import { getLocale } from "@/lib/locale";
 import Providers from "@/components/Providers";
 
-export async function generateMetadata({ params }) {
-  const resolvedParams = await params;
-  const lang = resolvedParams?.lang || "en";
+export async function generateMetadata() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return {
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       type: "website",
       locale: lang,
-      url: `https://hexydog.com/${lang}`,
+      url: "https://hexydog.com",
       siteName: "HEXYDOG",
       title:
         dict.HELMET.HOME_PAGE.TITLE ||
@@ -111,16 +111,16 @@ export async function generateMetadata({ params }) {
 
     // Language alternates
     alternates: {
-      canonical: `https://hexydog.com/${lang}`,
+      canonical: "https://hexydog.com",
       languages: {
-        en: "https://hexydog.com/en",
-        tr: "https://hexydog.com/tr",
-        ru: "https://hexydog.com/ru",
-        es: "https://hexydog.com/es",
-        fr: "https://hexydog.com/fr",
-        de: "https://hexydog.com/de",
-        it: "https://hexydog.com/it",
-        ar: "https://hexydog.com/ar",
+        en: "https://hexydog.com",
+        tr: "https://hexydog.com",
+        ru: "https://hexydog.com",
+        es: "https://hexydog.com",
+        fr: "https://hexydog.com",
+        de: "https://hexydog.com",
+        it: "https://hexydog.com",
+        ar: "https://hexydog.com",
       },
     },
 
@@ -131,7 +131,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateViewport({ params }) {
+export async function generateViewport() {
   return {
     themeColor: "#51A9FD",
     colorScheme: "dark",
@@ -140,9 +140,8 @@ export async function generateViewport({ params }) {
   };
 }
 
-export default async function RootLayout({ children, params }) {
-  const { lang } = await params;
-  const dict = await getDictionary(lang);
+export default async function RootLayout({ children }) {
+  const lang = await getLocale();
 
   return (
     <html lang={lang} data-arp="">
@@ -161,15 +160,12 @@ export default async function RootLayout({ children, params }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "@id": `https://hexydog.com/${lang}`,
-              name:
-                dict.HELMET.HOME_PAGE.TITLE ||
-                "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
+              "@id": "https://hexydog.com",
+              name: "Hexydog – Crypto Presale for Pet Care and Blockchain Utility",
               description:
-                dict.HELMET.HOME_PAGE.DESCRIPTION ||
                 "Hexydog (HEXY) provides blockchain solutions to transform the pet care sector.",
               image: "https://hexydog.com/og-image.jpg",
-              url: `https://hexydog.com/${lang}`,
+              url: "https://hexydog.com",
               brand: {
                 "@type": "Brand",
                 name: "Hexydog",
@@ -203,3 +199,4 @@ export default async function RootLayout({ children, params }) {
     </html>
   );
 }
+

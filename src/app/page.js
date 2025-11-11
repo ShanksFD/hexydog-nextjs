@@ -2,9 +2,10 @@ import Home from "@/components/Home/Home";
 import MainHeader from "@/components/Header/MainHeader";
 import MainFooter from "@/components/Footer/MainFooter";
 import { getDictionary } from "./dictionaries";
+import { getLocale } from "@/lib/locale";
 
-export async function generateMetadata({ params }) {
-  const { lang } = await params;
+export async function generateMetadata() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return {
@@ -13,8 +14,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function HomePage({ params }) {
-  const { lang } = await params;
+export default async function HomePage() {
+  const lang = await getLocale();
   const dict = await getDictionary(lang);
 
   return (
@@ -25,3 +26,4 @@ export default async function HomePage({ params }) {
     </div>
   );
 }
+
