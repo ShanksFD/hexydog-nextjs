@@ -12,7 +12,7 @@ export default async function sitemap() {
     const validBlogs = blogs.filter((blog) => blog.slug && blog.updatedAt);
 
     const blogUrls = validBlogs.map((blog) => ({
-      url: `https://hexydog.com/blog/${blog.slug || blog.id}`,
+      url: `https://www.hexydog.com/blog/${blog.slug || blog.id}`,
       lastModified: blog.updatedAt || new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
@@ -20,13 +20,13 @@ export default async function sitemap() {
 
     return [
       {
-        url: 'https://hexydog.com',
+        url: 'https://www.hexydog.com',
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 1.0,
       },
       {
-        url: 'https://hexydog.com/blog',
+        url: 'https://www.hexydog.com/blog',
         lastModified: new Date(),
         changeFrequency: 'daily',
         priority: 0.8,
@@ -38,7 +38,7 @@ export default async function sitemap() {
     // Return minimal sitemap on error
     return [
       {
-        url: 'https://hexydog.com',
+        url: 'https://www.hexydog.com',
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 1.0,
@@ -46,4 +46,3 @@ export default async function sitemap() {
     ];
   }
 }
-
