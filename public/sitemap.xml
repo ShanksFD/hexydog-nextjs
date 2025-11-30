@@ -9,7 +9,7 @@ export default async function sitemap() {
     const blogs = await getBlogPosts(1000);
     console.log("Fetched blogs for sitemap:", blogs.length);
     
-    const validBlogs = blogs.filter((blog) => blog.slug && blog.updatedAt);
+    const validBlogs = blogs.filter(blog => blog.slug && blog.updatedAt);
 
     const blogUrls = validBlogs.map((blog) => ({
       url: `https://www.hexydog.com/blog/${blog.slug || blog.id}`,
